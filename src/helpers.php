@@ -1,10 +1,11 @@
 <?php
 
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Support\Facades\Auth;
 use Quepenny\Livewire\Models\Guest;
-use Quepenny\Livewire\Models\User;
 
 if (!function_exists('user')) {
-    function user(): User|Guest|null
+    function user(): Authenticatable|Guest
     {
         return Auth::user() ?? guest();
     }
