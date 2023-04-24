@@ -2,8 +2,8 @@
 
 namespace Quepenny\Livewire\Traits\Livewire;
 
-use Quepenny\Livewire\Http\Requests\BaseFormRequest;
 use Illuminate\Database\Eloquent\Model;
+use Quepenny\Livewire\Http\Requests\BaseFormRequest;
 
 trait ValidatesRequests
 {

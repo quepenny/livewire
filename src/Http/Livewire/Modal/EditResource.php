@@ -2,13 +2,13 @@
 
 namespace Quepenny\Livewire\Http\Livewire\Modal;
 
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Str;
 use Quepenny\Livewire\Http\Livewire\Modal\Builders\EditResourceBuilder;
 use Quepenny\Livewire\Http\Livewire\Modal\Contracts\CustomActions;
 use Quepenny\Livewire\Http\Requests\BaseFormRequest;
-use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Support\Str;
-use Illuminate\Contracts\View\View;
 
 /**
  * @property-read bool $isCreation
@@ -43,6 +43,7 @@ class EditResource extends ResourceModal implements CustomActions
     public function getBodyProperty(): string|View
     {
         $form = Str::singular(str_replace('_', '-', $this->resource->getTable()));
+
         return view("livewire.forms.{$form}", $this->meta);
     }
 

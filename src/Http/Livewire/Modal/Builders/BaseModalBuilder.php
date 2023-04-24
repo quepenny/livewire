@@ -2,10 +2,10 @@
 
 namespace Quepenny\Livewire\Http\Livewire\Modal\Builders;
 
-use Quepenny\Livewire\Traits\Makeable;
-use Quepenny\Livewire\Traits\Metable;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Str;
+use Quepenny\Livewire\Traits\Makeable;
+use Quepenny\Livewire\Traits\Metable;
 
 abstract class BaseModalBuilder implements Arrayable
 {
@@ -16,7 +16,7 @@ abstract class BaseModalBuilder implements Arrayable
 
     final public static function slug(): string
     {
-        return once(self::$modalSlug, fn() => Str::snake(
+        return once(self::$modalSlug, fn () => Str::snake(
             str_replace('Builder', '', class_basename(static::class)),
             '-'
         ));

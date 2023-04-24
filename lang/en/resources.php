@@ -2,5 +2,5 @@
 
 return [
     'saved' => ':resource Saved',
-    'deleted' => ':resource Deleted'
+    'deleted' => ':resource Deleted',
 ];

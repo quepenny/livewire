@@ -1,16 +1,13 @@
 <?php
 
-namespace Quepenny\Livewire\Models;
+namespace App\Models;
 
-use Illuminate\Database\Eloquent\Concerns\HasUlids;
-use Illuminate\Database\Eloquent\Model;
+use Quepenny\Livewire\Models\AbstractGuest;
 
-class Guest extends Model
+class Guest extends AbstractGuest
 {
-    use HasUlids;
-
-    public function uniqueIds(): array
+    public function hasData(): bool
     {
-        return ['token'];
+        return false;
     }
 }

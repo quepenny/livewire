@@ -2,15 +2,14 @@
 
 namespace Quepenny\Livewire\Http\Livewire\Modal;
 
-use Quepenny\Livewire\Http\Livewire\Modal\Builders\EditResourceBuilder;
-use Quepenny\Livewire\Traits\Livewire\TriggersModals;
-use Quepenny\Livewire\Traits\Livewire\ValidatesRequests;
-use Quepenny\Livewire\Traits\Metable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
+use Quepenny\Livewire\Traits\Livewire\TriggersModals;
+use Quepenny\Livewire\Traits\Livewire\ValidatesRequests;
+use Quepenny\Livewire\Traits\Metable;
 
 abstract class ResourceModal extends BaseModalComponent
 {
@@ -19,8 +18,11 @@ abstract class ResourceModal extends BaseModalComponent
     use ValidatesRequests;
 
     public ?Model $resource = null;
+
     public int $resourceId;
+
     public string $resourceTitle;
+
     public string $resourceName;
 
     public function mount(string $model, array $attributes = [], array $meta = []): void
@@ -34,7 +36,7 @@ abstract class ResourceModal extends BaseModalComponent
 
     protected function setResource(string $model, array $attributes): void
     {
-        if ($this->meta('lazyLoadResource') || !$this->resourceId) {
+        if ($this->meta('lazyLoadResource') || ! $this->resourceId) {
             $this->resource = new $model($attributes);
         } else {
             $this->resource = $model::find($this->resourceId);
@@ -45,7 +47,7 @@ abstract class ResourceModal extends BaseModalComponent
     {
         $this->resourceTitle = $this->meta('title');
 
-        if (!$this->resourceTitle && $this->resourceId) {
+        if (! $this->resourceTitle && $this->resourceId) {
             $titleAttribute = $this->meta('titleAttribute');
             $this->resourceTitle = $this->resource->{$titleAttribute};
         }

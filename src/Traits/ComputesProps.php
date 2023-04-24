@@ -19,7 +19,7 @@ trait ComputesProps
 
         $methodExists = method_exists(
             $this,
-            $methodName = 'get' . $studlyProperty . 'Property'
+            $methodName = 'get'.$studlyProperty.'Property'
         );
 
         if ($methodExists) {

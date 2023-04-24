@@ -28,5 +28,8 @@
             "name": "Paul Ogbeiwi",
             "email": "developers@quepenny.com"
         }
-    ]
+    ],
+    "require-dev": {
+        "laravel/pint": "^1.9"
+    }
 }

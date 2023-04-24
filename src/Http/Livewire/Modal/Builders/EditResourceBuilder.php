@@ -2,10 +2,10 @@
 
 namespace Quepenny\Livewire\Http\Livewire\Modal\Builders;
 
-use Quepenny\Livewire\Traits\ComputesProps;
-use Quepenny\Livewire\Traits\Metable;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Str;
+use Quepenny\Livewire\Traits\ComputesProps;
+use Quepenny\Livewire\Traits\Metable;
 
 /**
  * @property-read bool $isCreation
@@ -16,6 +16,7 @@ class EditResourceBuilder extends BaseModalBuilder implements Arrayable
     use Metable;
 
     public string $resourceClass;
+
     public array $resourceAttributes = [];
 
     public function __construct(
@@ -35,6 +36,7 @@ class EditResourceBuilder extends BaseModalBuilder implements Arrayable
     public function setResourceAttributes(array $attributes): static
     {
         $this->resourceAttributes = array_merge($this->resourceAttributes, $attributes);
+
         return $this;
     }
 
@@ -60,7 +62,7 @@ class EditResourceBuilder extends BaseModalBuilder implements Arrayable
 
     public function getIsCreationProperty(): bool
     {
-        return !$this->resourceAttributes['id'];
+        return ! $this->resourceAttributes['id'];
     }
 
     public function toArray(): array
@@ -71,7 +73,7 @@ class EditResourceBuilder extends BaseModalBuilder implements Arrayable
             'meta' => $this->meta(),
             // Unique modal ID for "save & create another"
             // Child modal won't spawn if having same exact params as parent
-            'modalId' => $this->isCreation ? Str::ulid() : null
+            'modalId' => $this->isCreation ? Str::ulid() : null,
         ];
     }
 }

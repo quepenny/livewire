@@ -28,7 +28,7 @@ trait Toastable
     {
         $this->dispatchBrowserEvent('wire-toast', [
             'mode' => $mode,
-            'message' => $message
+            'message' => $message,
         ]);
     }
 }

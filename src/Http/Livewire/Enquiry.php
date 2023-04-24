@@ -2,19 +2,23 @@
 
 namespace Quepenny\Livewire\Http\Livewire;
 
+use Illuminate\Contracts\View\View;
 use Quepenny\Livewire\Http\Requests\EnquiryRequest;
 use Quepenny\Livewire\Mail\EnquiryMail;
 use Quepenny\Livewire\Traits\Livewire\ValidatesRequests;
-use Illuminate\Contracts\View\View;
 
 class Enquiry extends PageComponent
 {
     use ValidatesRequests;
 
     public string $name = '';
+
     public string $email = '';
+
     public string $subject = '';
+
     public string $message = '';
+
     public bool $terms = false;
 
     public function submit()

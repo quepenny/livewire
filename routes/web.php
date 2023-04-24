@@ -26,7 +26,7 @@ Route::get('privacy', Privacy::class)->name('privacy');
 Route::get('cookies', Cookies::class)->name('cookies');
 Route::post('deploy', DeployController::class);
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function() {
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('settings', Settings::class)->name('settings');
 });
 

@@ -28,7 +28,7 @@ class Input extends BaseComponent
 
     public function getCssClassesProperty(): string
     {
-        return "
+        return '
             bg-gray-50
             border
             border-gray-300
@@ -42,12 +42,12 @@ class Input extends BaseComponent
             dark:border-gray-500
             dark:placeholder-gray-400
             dark:text-white
-        ";
+        ';
     }
 
     public function getInputClassesProperty(): string
     {
-        return $this->cssClasses . match ($this->type) {
+        return $this->cssClasses.match ($this->type) {
             'checkbox' => 'ml-2 w-6 h-6',
             default => 'w-full',
         };

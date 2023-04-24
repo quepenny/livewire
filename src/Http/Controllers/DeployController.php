@@ -13,13 +13,13 @@ class DeployController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $signature = 'sha1=' . hash_hmac(
+        $signature = 'sha1='.hash_hmac(
             'sha1',
             $request->getContent(),
             config('app.deploy_secret')
         );
 
-        $invalidSignature = !hash_equals(
+        $invalidSignature = ! hash_equals(
             $signature, $request->header('X-Hub-Signature')
         );
 

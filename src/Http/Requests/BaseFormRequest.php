@@ -9,8 +9,8 @@ abstract class BaseFormRequest extends FormRequest
 {
     // ToDo: auto compute request class name for model
     private static array $modelRequestMap = [
-//         Item::class => EditItemRequest::class,
-//         ShoppingList::class => EditShoppingListRequest::class,
+        //         Item::class => EditItemRequest::class,
+        //         ShoppingList::class => EditShoppingListRequest::class,
     ];
 
     abstract public function rules(Model|int|null $model);
@@ -24,6 +24,7 @@ abstract class BaseFormRequest extends FormRequest
     public static function requestFor(string $model): self
     {
         $request = self::$modelRequestMap[$model];
+
         return new $request();
     }
 

@@ -2,11 +2,11 @@
 
 namespace Quepenny\Livewire\Http\Middleware;
 
-use Quepenny\Livewire\Models\Guest;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Quepenny\Livewire\Models\AbstractGuest;
 
 class GuestToken
 {
@@ -17,7 +17,7 @@ class GuestToken
 
             Session::put(
                 'guest',
-                $token ? Guest::firstOrCreate(['token' => $token]) : Guest::create()
+                $token ? AbstractGuest::firstOrCreate(['token' => $token]) : AbstractGuest::create()
             );
         }
 

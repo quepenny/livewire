@@ -26,7 +26,7 @@ class DeleteResource extends ResourceModal
         $this->resource::destroy($this->resourceId);
 
         $this->warning(__('resources.deleted', [
-            'resource' => $this->resourceName
+            'resource' => $this->resourceName,
         ]));
     }
 }

@@ -2,13 +2,13 @@
 
 namespace Quepenny\Livewire\Traits\Livewire;
 
-use Quepenny\Livewire\Http\Livewire\Modal\Builders\DeleteResourceBuilder;
-use Quepenny\Livewire\Http\Livewire\Modal\Builders\EditResourceBuilder;
 use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent;
 use Laravel\Scout;
 use Livewire\WithPagination;
+use Quepenny\Livewire\Http\Livewire\Modal\Builders\DeleteResourceBuilder;
+use Quepenny\Livewire\Http\Livewire\Modal\Builders\EditResourceBuilder;
 
 /**
  * @property-read LengthAwarePaginator $resources
@@ -18,6 +18,7 @@ trait ManagesResources
     use WithPagination;
 
     public string $search = '';
+
     protected int $resourcesPerPage = 15;
 
     public function updatedSearch($value): void

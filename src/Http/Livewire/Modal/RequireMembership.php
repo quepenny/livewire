@@ -2,11 +2,11 @@
 
 namespace Quepenny\Livewire\Http\Livewire\Modal;
 
-use Quepenny\Livewire\Http\Livewire\Modal\Contracts\CustomActions;
-use Quepenny\Livewire\Traits\Makeable;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\URL;
+use Quepenny\Livewire\Http\Livewire\Modal\Contracts\CustomActions;
+use Quepenny\Livewire\Traits\Makeable;
 
 class RequireMembership extends BaseModalComponent implements CustomActions, Arrayable
 {
@@ -17,6 +17,7 @@ class RequireMembership extends BaseModalComponent implements CustomActions, Arr
     public function setMessage(string $key): static
     {
         $this->message = $key;
+
         return $this;
     }
 

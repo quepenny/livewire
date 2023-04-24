@@ -2,10 +2,10 @@
 
 namespace Quepenny\Livewire\Mail;
 
-use Quepenny\Livewire\Http\Requests\EnquiryRequest;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Quepenny\Livewire\Http\Requests\EnquiryRequest;
 
 class EnquiryMail extends Mailable
 {

@@ -2,9 +2,9 @@
 
 namespace Quepenny\Livewire\View\Components;
 
+use Illuminate\View\Component;
 use Quepenny\Livewire\Traits\ComputesProps;
 use Quepenny\Livewire\Traits\Makeable;
-use Illuminate\View\Component;
 
 abstract class BaseComponent extends Component
 {

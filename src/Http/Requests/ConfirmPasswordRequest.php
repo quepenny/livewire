@@ -12,10 +12,10 @@ class ConfirmPasswordRequest extends BaseFormRequest
     {
         return [
             'password' => ['required', function ($attr, $value, $fail) {
-                if (!Hash::check($value, Auth::user()->password)) {
+                if (! Hash::check($value, Auth::user()->password)) {
                     $fail(__('This password is invalid.'));
                 }
-            }]
+            }],
         ];
     }
 }

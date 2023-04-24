@@ -2,11 +2,11 @@
 
 namespace Quepenny\Livewire\Exports;
 
-use Quepenny\Livewire\Traits\Makeable;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Support\Responsable;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Excel;
+use Quepenny\Livewire\Traits\Makeable;
 
 class BaseExport implements Responsable
 {

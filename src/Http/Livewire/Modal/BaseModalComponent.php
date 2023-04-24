@@ -2,12 +2,12 @@
 
 namespace Quepenny\Livewire\Http\Livewire\Modal;
 
-use Quepenny\Livewire\Http\Livewire\Modal\Contracts\CustomActions;
-use Quepenny\Livewire\Traits\Livewire\Toastable;
-use Quepenny\Livewire\Traits\Livewire\ValidatesInput;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
 use LivewireUI\Modal\ModalComponent;
+use Quepenny\Livewire\Http\Livewire\Modal\Contracts\CustomActions;
+use Quepenny\Livewire\Traits\Livewire\Toastable;
+use Quepenny\Livewire\Traits\Livewire\ValidatesInput;
 
 /**
  * docs: https://github.com/wire-elements/modal
@@ -24,12 +24,15 @@ abstract class BaseModalComponent extends ModalComponent
     use ValidatesInput;
 
     public static string $slug = '';
+
     public ?string $transSlug = null;
 
     public bool $destructiveAction = false;
+
     public bool $showConfirmButton = true;
 
     protected static bool $closeModalOnEscape = true;
+
     protected static bool $closeModalOnClickAway = true;
 
     protected array $customActions = [];
@@ -84,7 +87,7 @@ abstract class BaseModalComponent extends ModalComponent
         $this->customActions[$action] = [
             'name' => $action,
             'label' => $this->trans($action) ?? Str::title($action),
-            'callback' => $callback
+            'callback' => $callback,
         ];
     }
 
@@ -92,7 +95,7 @@ abstract class BaseModalComponent extends ModalComponent
     {
         return once(
             self::$slug,
-            fn() => Str::snake(class_basename(static::class), '-')
+            fn () => Str::snake(class_basename(static::class), '-')
         );
     }
 
@@ -105,6 +108,7 @@ abstract class BaseModalComponent extends ModalComponent
     {
         $key = "modals.{$this->transSlug()}.{$key}";
         $string = __($key, $replace);
+
         return $string === $key ? null : $string;
     }
 
