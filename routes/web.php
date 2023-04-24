@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Controllers\DeployController;
-use App\Http\Controllers\SocialLoginController;
-use App\Http\Livewire\Cookies;
-use App\Http\Livewire\Enquiry;
-use App\Http\Livewire\Privacy;
-use App\Http\Livewire\Settings;
-use App\Http\Livewire\Terms;
 use Illuminate\Support\Facades\Route;
+use Quepenny\Livewire\Http\Controllers\DeployController;
+use Quepenny\Livewire\Http\Controllers\SocialLoginController;
+use Quepenny\Livewire\Http\Livewire\Cookies;
+use Quepenny\Livewire\Http\Livewire\Enquiry;
+use Quepenny\Livewire\Http\Livewire\Privacy;
+use Quepenny\Livewire\Http\Livewire\Settings;
+use Quepenny\Livewire\Http\Livewire\Terms;
 
 /*
 |--------------------------------------------------------------------------
