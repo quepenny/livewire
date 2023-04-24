@@ -15,6 +15,9 @@
         "wire-elements/modal": "^1.0",
         "laravel/scout": "^10.0"
     },
+    "require-dev": {
+        "laravel/pint": "^1.9"
+    },
     "autoload": {
         "psr-4": {
             "Quepenny\\Livewire\\": "src/"
@@ -35,8 +38,5 @@
             "name": "Paul Ogbeiwi",
             "email": "developers@quepenny.com"
         }
-    ],
-    "require-dev": {
-        "laravel/pint": "^1.9"
-    }
+    ]
 }
