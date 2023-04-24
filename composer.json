@@ -23,6 +23,13 @@
             "src/helpers.php"
         ]
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Quepenny\\Livewire\\Providers\\QuepennyServiceProvider"
+            ]
+        }
+    },
     "authors": [
         {
             "name": "Paul Ogbeiwi",
