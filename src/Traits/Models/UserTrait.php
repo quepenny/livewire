@@ -6,5 +6,8 @@ trait UserTrait
 {
     use MorphTrait;
 
-    abstract public function hasData(): bool;
+    public function hasData(): bool
+    {
+        return true;
+    }
 }

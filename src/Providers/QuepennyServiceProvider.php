@@ -25,7 +25,8 @@ class QuepennyServiceProvider extends EventServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../../lang', 'quepenny');
 
         $this->publishes([
-            __DIR__.'/../../src/Models' => app_path('Models'),
+            __DIR__.'/../../src/Models/Guest.php' => app_path('Models/Guest.php'),
+            __DIR__.'/../../src/Traits/Models/UserTrait.php' => app_path('Traits/Models/UserTrait.php'),
         ], 'models');
 
         $this->publishes([

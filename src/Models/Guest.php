@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
-use Quepenny\Livewire\Models\AbstractGuest;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
+use Illuminate\Database\Eloquent\Model;
+use Quepenny\Livewire\Traits\Models\UserTrait;
 
-class Guest extends AbstractGuest
+class Guest extends Model
 {
-    public function hasData(): bool
+    use HasUlids;
+    use UserTrait;
+
+    public function uniqueIds(): array
     {
-        return false;
+        return ['token'];
     }
 }
