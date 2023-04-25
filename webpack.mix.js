@@ -12,15 +12,14 @@ const mix = require('laravel-mix');
  */
 
 mix.js([
+    'resources/js/quepenny.js',
     'resources/js/dropdown.js',
     'resources/js/forms/import-items.js',
     'resources/js/resource-manager.js',
     'resources/js/toast.js',
 ], 'public/js/app.js');
 
-mix.js('resources/js/app.js', 'public/js');
-
-mix.postCss('resources/css/app.css', 'public/css', [
+mix.postCss('resources/css/quepenny.css', 'public/css/app.css', [
     require('postcss-import'),
     require('tailwindcss'),
 ]);

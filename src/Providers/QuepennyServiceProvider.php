@@ -30,8 +30,10 @@ class QuepennyServiceProvider extends EventServiceProvider
         ], 'models');
 
         $this->publishes([
+            __DIR__.'/../../resources/css' => resource_path('css'),
+            __DIR__.'/../../resources/js' => resource_path('js'),
             __DIR__.'/../../resources/views' => resource_path('views'),
-        ], 'views');
+        ], 'resources');
 
         $this->publishes([
             __DIR__.'/../../.gitignore' => base_path('.gitignore'),
@@ -44,7 +46,7 @@ class QuepennyServiceProvider extends EventServiceProvider
         $this->publishes([
             __DIR__.'/../../public/icon' => public_path('icon'),
             __DIR__.'/../../public/.htaccess' => public_path('.htaccess'),
-        ], 'public');
+        ], 'assets');
 
         $this->morphMap();
         $this->macros();
