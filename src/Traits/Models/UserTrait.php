@@ -1,12 +1,14 @@
 <?php
 
-namespace Quepenny\Livewire\Traits\Models;
+namespace App\Traits\Models;
+
+use Quepenny\Livewire\Traits\Models\MorphTrait;
 
 trait UserTrait
 {
     use MorphTrait;
 
-    public function hasData(): bool
+    public function getHasDataAttribute(): bool
     {
         return true;
     }

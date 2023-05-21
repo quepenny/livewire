@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use App\Traits\Models\UserTrait;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Model;
-use Quepenny\Livewire\Traits\Models\UserTrait;
 
 class Guest extends Model
 {
