@@ -2,10 +2,10 @@
 
 namespace Quepenny\Livewire\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
-use Quepenny\Livewire\Models\User;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class SocialLoginController extends Controller
