@@ -30,7 +30,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Quepenny\\Livewire\\Providers\\QuepennyServiceProvider"
+                "Quepenny\\Livewire\\Providers\\AppServiceProvider",
+                "Quepenny\\Livewire\\Providers\\EventServiceProvider",
+                "Quepenny\\Livewire\\Providers\\MacroServiceProvider",
+                "Quepenny\\Livewire\\Providers\\RouteServiceProvider"
             ]
         }
     },
