@@ -17,11 +17,13 @@
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.13",
-        "laravel/pint": "^1.9"
+        "laravel/pint": "^1.9",
+        "phpunit/phpunit": "^10.1"
     },
     "autoload": {
         "psr-4": {
-            "Quepenny\\Livewire\\": "src/"
+            "Quepenny\\Livewire\\": "src/",
+            "Quepenny\\Livewire\\Tests\\": "tests/"
         },
         "files": [
             "src/helpers.php"
