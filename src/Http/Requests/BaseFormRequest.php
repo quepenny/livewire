@@ -7,12 +7,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 abstract class BaseFormRequest extends FormRequest
 {
-    // ToDo: auto compute request class name for model
-    private static array $modelRequestMap = [
-        //         Item::class => EditItemRequest::class,
-        //         ShoppingList::class => EditShoppingListRequest::class,
-    ];
-
     abstract public function rules(Model|int|null $model);
 
     public function prepareValidationAttributes(array $attributes): array
@@ -20,12 +14,12 @@ abstract class BaseFormRequest extends FormRequest
         return $attributes;
     }
 
-    // ToDo: auto compute request class name for model
-    public static function requestFor(string $model): self
+    public static function requestFor(Model|string $model): self
     {
-        $request = self::$modelRequestMap[$model];
+        $modelClass = class_basename($model);
+        $requestClass = "\\App\\Http\\Requests\\Edit{$modelClass}Request";
 
-        return new $request();
+        return new $requestClass();
     }
 
     public function getStopOnFirstFailure(): bool
