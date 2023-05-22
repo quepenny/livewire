@@ -27,6 +27,10 @@ class AppServiceProvider extends ServiceProvider
     private function publishAssets(): void
     {
         $this->publishes([
+            __DIR__.'/../../database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php' => database_path('migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php'),
+        ], 'database');
+
+        $this->publishes([
             __DIR__.'/../../src/Models/Guest.php' => app_path('Models/Guest.php'),
             __DIR__.'/../../src/Traits/Models/UserTrait.php' => app_path('Traits/Models/UserTrait.php'),
         ], 'models');
