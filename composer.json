@@ -16,7 +16,6 @@
         "laravel/scout": "^10.0"
     },
     "require-dev": {
-        "barryvdh/laravel-ide-helper": "^2.13",
         "laravel/pint": "^1.9",
         "phpunit/phpunit": "^10.1"
     },
