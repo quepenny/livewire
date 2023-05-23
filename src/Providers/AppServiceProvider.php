@@ -27,6 +27,15 @@ class AppServiceProvider extends ServiceProvider
     private function publishAssets(): void
     {
         $this->publishes([
+            __DIR__.'/../../public/icon' => public_path('icon'),
+            __DIR__.'/../../public/.htaccess' => public_path('.htaccess'),
+        ], 'assets');
+
+        $this->publishes([
+            __DIR__.'/../../config/livewire.php' => config_path('livewire.php'),
+        ], 'config');
+
+        $this->publishes([
             __DIR__.'/../../database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php' => database_path('migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php'),
         ], 'database');
 
@@ -50,10 +59,5 @@ class AppServiceProvider extends ServiceProvider
             __DIR__.'/../../webpack.mix.js' => base_path('webpack.mix.js'),
             __DIR__.'/../../phpunit.xml' => base_path('phpunit.xml'),
         ], 'setup');
-
-        $this->publishes([
-            __DIR__.'/../../public/icon' => public_path('icon'),
-            __DIR__.'/../../public/.htaccess' => public_path('.htaccess'),
-        ], 'assets');
     }
 }
