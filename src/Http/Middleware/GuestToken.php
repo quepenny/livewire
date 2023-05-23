@@ -6,26 +6,31 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use Quepenny\Livewire\Models\AbstractGuest;
+use App\Models\Guest;
 
 class GuestToken
 {
     public function handle(Request $request, Closure $next)
     {
         if (Auth::guest()) {
-            $token = $request->cookie('shopally-guest-token');
+            $token = $request->cookie($this->tokenName());
 
             Session::put(
                 'guest',
-                $token ? AbstractGuest::firstOrCreate(['token' => $token]) : AbstractGuest::create()
+                $token ? Guest::firstOrCreate(['token' => $token]) : Guest::create()
             );
         }
 
         $response = $next($request);
 
         return Auth::guest() ? $response->withCookie(
-            'shopally-guest-token',
-            user()?->token ?? $request->cookie('shopally-guest-token')
+            $this->tokenName(),
+            user()?->token ?? $request->cookie($this->tokenName())
         ) : $response;
+    }
+
+    private function tokenName(): string
+    {
+        return strtolower(config('app.name')) . '-guest-token';
     }
 }
