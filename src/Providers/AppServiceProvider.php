@@ -33,12 +33,9 @@ class AppServiceProvider extends ServiceProvider
         ], 'assets');
 
         $this->publishes([
+            __DIR__.'/../../config/jetstream.php' => config_path('jetstream.php'),
             __DIR__.'/../../config/livewire.php' => config_path('livewire.php'),
         ], 'config');
-
-        $this->publishes([
-            __DIR__.'/../../database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php' => database_path('migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php'),
-        ], 'database');
 
         $this->publishes([
             __DIR__.'/../../src/Models/Guest.php' => app_path('Models/Guest.php'),
