@@ -38,6 +38,10 @@ class AppServiceProvider extends ServiceProvider
         ], 'config');
 
         $this->publishes([
+            __DIR__.'/../../lang/en/empty.php' => lang_path('en/empty.php'),
+        ], 'lang');
+
+        $this->publishes([
             __DIR__.'/../../src/Models/Guest.php' => app_path('Models/Guest.php'),
             __DIR__.'/../../src/Traits/Models/UserTrait.php' => app_path('Traits/Models/UserTrait.php'),
         ], 'models');
