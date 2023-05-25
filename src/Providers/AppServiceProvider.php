@@ -12,6 +12,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadTranslationsFrom(__DIR__.'/../../lang', 'quepenny');
+        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
         $this->morphMap();
         $this->publishAssets();
     }
