@@ -2,17 +2,17 @@
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Auth;
-use Quepenny\Livewire\Models\AbstractGuest;
+use App\Models\Guest;
 
 if (! function_exists('user')) {
-    function user(): Authenticatable|AbstractGuest
+    function user(): Authenticatable|Guest
     {
         return Auth::user() ?? guest();
     }
 }
 
 if (! function_exists('guest')) {
-    function guest(): AbstractGuest|null
+    function guest(): Guest|null
     {
         return session('guest');
     }
