@@ -1,9 +1,10 @@
 <?php
 
-namespace Quepenny\Livewire\View\Components;
+namespace App\View\Components;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
+use Quepenny\Livewire\View\Components\BaseComponent;
 
 /**
  * @property-read string $inputClasses

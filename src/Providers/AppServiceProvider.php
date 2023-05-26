@@ -61,5 +61,11 @@ class AppServiceProvider extends ServiceProvider
             __DIR__.'/../../webpack.mix.js' => base_path('webpack.mix.js'),
             __DIR__.'/../../phpunit.xml' => base_path('phpunit.xml'),
         ], 'setup');
+
+        $this->publishes([
+            __DIR__.'/../../src/View/Components/AppLayout.php' => app_path('View/Components/AppLayout.php'),
+            __DIR__.'/../../src/View/Components/Input.php' => app_path('View/Components/Input.php'),
+            __DIR__.'/../../src/View/Components/Tooltip.php' => app_path('View/Components/Tooltip.php'),
+        ], 'components');
     }
 }

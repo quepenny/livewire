@@ -1,8 +1,9 @@
 <?php
 
-namespace Quepenny\Livewire\View\Components;
+namespace App\View\Components;
 
 use Illuminate\Contracts\View\View;
+use Quepenny\Livewire\View\Components\PageComponent;
 
 class AppLayout extends PageComponent
 {
