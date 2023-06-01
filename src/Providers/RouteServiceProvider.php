@@ -10,7 +10,7 @@ class RouteServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        app(Kernel::class)->pushMiddleware(GuestToken::class);
+        app(Kernel::class)->appendMiddlewareToGroup('web', GuestToken::class);
         $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
     }
 }
