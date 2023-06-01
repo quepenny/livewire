@@ -1,8 +1,8 @@
 <x-content>
     <div class="container mx-auto py-8 px-4">
         <div class="mb-4">
-            <h2 class="text-2xl font-bold font-heading">{{ __('enquiry.title') }}</h2>
-            <p class="text-gray-500 text-sm leading-loose">{{ __('enquiry.subtitle') }}</p>
+            <h2 class="text-2xl font-bold font-heading">{{ __('quepenny::enquiry.title') }}</h2>
+            <p class="text-gray-500 text-sm leading-loose">{{ __('quepenny::enquiry.subtitle') }}</p>
         </div>
 
         <div class="flex flex-wrap">
@@ -44,7 +44,7 @@
                 <div class="flex flex-wrap">
                     <div class="w-full md:w-1/2">
                         <h3 class="mb-2 text-2xl font-bold">Email Us</h3>
-                        <p class="text-gray-500 text-sm">support@shopally.me</p>
+                        <p class="text-gray-500 text-sm">support@quepenny.com</p>
                     </div>
                 </div>
             </div>
