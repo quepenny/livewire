@@ -1,5 +1,5 @@
-<{{ $tag ?? 'div' }}
-    {{ $attributes->except('tag') }}
->
+@props(['tag' => 'div'])
+
+<{{ $tag }} {{ $attributes->except('tag') }}>
     {{ $slot }}
-</{{ $tag ?? 'div' }}>
+</{{ $tag }}>
