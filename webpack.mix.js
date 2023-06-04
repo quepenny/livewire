@@ -14,6 +14,7 @@ const mix = require('laravel-mix');
 mix.js([
     'resources/js/dropdown.js',
     'resources/js/forms/import-items.js',
+    'resources/js/nav.js',
     'resources/js/resource-manager.js',
     'resources/js/toast.js',
 ], 'public/js/main.js');
