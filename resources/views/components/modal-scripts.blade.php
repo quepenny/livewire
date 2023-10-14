@@ -2,13 +2,13 @@
 
 @if (session()->has('open-modal'))
     <script>
-        let shopallyModal = @json(session('open-modal'));
+        let modal = @json(session('open-modal'));
 
-        document.addEventListener('livewire:load', () => {
-            Livewire.emit('openModal',
-                shopallyModal.modal,
-                shopallyModal.params
-            );
+        document.addEventListener('livewire:init', () => {
+            Livewire.dispatch('openModal', {
+                component: modal.component,
+                arguments: modal.arguments
+            });
         })
     </script>
 @endif

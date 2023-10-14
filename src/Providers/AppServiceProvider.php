@@ -33,12 +33,12 @@ class AppServiceProvider extends ServiceProvider
         ], 'assets');
 
         $this->publishes([
-            __DIR__.'/../../config/jetstream.php' => config_path('jetstream.php'),
             __DIR__.'/../../config/livewire.php' => config_path('livewire.php'),
         ], 'config');
 
         $this->publishes([
             __DIR__.'/../../lang/en/empty.php' => lang_path('en/empty.php'),
+            __DIR__.'/../../lang/en/modals.php' => lang_path('en/modals.php'),
         ], 'lang');
 
         $this->publishes([
@@ -56,10 +56,12 @@ class AppServiceProvider extends ServiceProvider
             __DIR__.'/../../.env' => base_path('.env'),
             __DIR__.'/../../.gitignore' => base_path('.gitignore'),
             __DIR__.'/../../deploy.sh' => base_path('deploy.sh'),
+            __DIR__.'/../../docker-compose.yml' => base_path('docker-compose.yml'),
             __DIR__.'/../../package.json' => base_path('package.json'),
-            __DIR__.'/../../tailwind.config.js' => base_path('tailwind.config.js'),
-            __DIR__.'/../../webpack.mix.js' => base_path('webpack.mix.js'),
             __DIR__.'/../../phpunit.xml' => base_path('phpunit.xml'),
+            __DIR__.'/../../postcss.config.js' => base_path('postcss.config.js'),
+            __DIR__.'/../../tailwind.config.js' => base_path('tailwind.config.js'),
+            __DIR__.'/../../vite.config.js' => base_path('vite.config.js'),
         ], 'setup');
 
         $this->publishes([

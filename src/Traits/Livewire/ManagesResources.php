@@ -7,8 +7,8 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent;
 use Laravel\Scout;
 use Livewire\WithPagination;
-use Quepenny\Livewire\Http\Livewire\Modal\Builders\DeleteResourceBuilder;
-use Quepenny\Livewire\Http\Livewire\Modal\Builders\EditResourceBuilder;
+use Quepenny\Livewire\Modal\Builders\DeleteResourceBuilder;
+use Quepenny\Livewire\Modal\Builders\EditResourceBuilder;
 
 /**
  * @property-read LengthAwarePaginator $resources

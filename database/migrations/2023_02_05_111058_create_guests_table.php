@@ -8,15 +8,19 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('guests', function (Blueprint $table) {
-            $table->id();
-            $table->ulid('token');
-            $table->timestamps();
-        });
+        if (config('quepenny.guest_members')) {
+            Schema::create('guests', function (Blueprint $table) {
+                $table->id();
+                $table->ulid('token');
+                $table->timestamps();
+            });
+        }
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('guests');
+        if (config('quepenny.guest_members')) {
+            Schema::dropIfExists('guests');
+        }
     }
 };

@@ -1,6 +1,8 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+import defaultTheme from 'tailwindcss/defaultTheme';
+import forms from '@tailwindcss/forms';
+import plugin from 'flowbite/plugin';
 
-module.exports = {
+export default {
     content: [
         './app/View/Components/**/*.php',
         './node_modules/flowbite/**/*.js',
@@ -26,6 +28,7 @@ module.exports = {
     },
 
     plugins: [
-        require('flowbite/plugin')
+        forms,
+        plugin
     ]
 };

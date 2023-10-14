@@ -15,7 +15,7 @@
         @switch($type)
             @case('select')
                 <select
-                    wire:model.defer="{{ $field }}"
+                    wire:model="{{ $field }}"
                     name="{{ $field }}"
                     {{ $attributes->only($inputAttrs) }}
                     class="{{ $prop('inputClasses') }}"
@@ -32,7 +32,7 @@
         
             @case('textarea')
                 <textarea
-                    wire:model.defer="{{ $field }}"
+                    wire:model="{{ $field }}"
                     name="{{ $field }}"
                     {{ $attributes->only($inputAttrs) }}
                     @class([$prop('inputClasses'), 'h-24'])
@@ -45,7 +45,7 @@
         
             @default
                 <input
-                    wire:model.defer="{{ $field }}"
+                    wire:model="{{ $field }}"
                     name="{{ $field }}"
                     type="{{ $type }}"
                     class="{{ $prop('inputClasses') }}"

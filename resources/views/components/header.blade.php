@@ -10,8 +10,6 @@
             </div>
 
             <div class="flex items-center">
-                <x-country-flag class="mr-4" />
-
                 <button
                     class="navbar-burger flex items-center rounded focus:outline-none"
                     @click="toggleMobileMenu"
@@ -45,15 +43,13 @@
                         <p class="text-white font-bold mt-2">{{ \Illuminate\Support\Str::limit(user()->name, 22) }}</p>
                     @endauth
                 </div>
-
-                <x-country-flag class="hidden lg:block" />
             </header>
 
             <div class="px-4 pb-6">
-                <x-dashboard.nav.group class="flex flex-col">
+                <x-nav.group class="flex flex-col">
                     @switch($nav['active'])
                         @case('stock-check')
-                            <x-dashboard.nav.item
+                            <x-nav.item
                                 :text="__('Stock Check')"
                                 :active="true"
                                 icon="clipboard-check"
@@ -61,7 +57,7 @@
                             />
 
                         @case('items')
-                            <x-dashboard.nav.item
+                            <x-nav.item
                                 :text="$nav['list']->name"
                                 :route="route('items', $nav['list'])"
                                 :active="$nav['active'] === 'items'"
@@ -70,7 +66,7 @@
                             />
 
                         @default
-                            <x-dashboard.nav.item
+                            <x-nav.item
                                 :text="__('Shopping Lists')"
                                 :route="route('shopping-lists')"
                                 :active="$nav['active'] === 'lists'"
@@ -78,71 +74,71 @@
                                 class="order-1"
                             />
                     @endswitch
-                </x-dashboard.nav.group>
+                </x-nav.group>
 
                 @guest
-                    <x-dashboard.nav.group>
-                        <x-dashboard.nav.item
+                    <x-nav.group>
+                        <x-nav.item
                             :text="__('Sign In')"
                             :route="route('login')"
                             icon="box-arrow-in-right"
                         />
 
-                        <x-dashboard.nav.item
+                        <x-nav.item
                             :text="__('Sign Up')"
                             :route="route('register')"
                             icon="box-arrow-up-left"
                         />
-                    </x-dashboard.nav.group>
+                    </x-nav.group>
                 @endguest
 
                 @auth
-                    <x-dashboard.nav.group>
-                        <x-dashboard.nav.item
+                    <x-nav.group>
+                        <x-nav.item
                             :text="__('Settings')"
                             :route="route('settings')"
                             :active="$nav['active'] === 'settings'"
                             icon="gear"
                         />
 
-                        <x-dashboard.nav.item
+                        <x-nav.item
                             :text="__('Log Out')"
                             :route="route('logout')"
                             :postRequest="true"
                             icon="box-arrow-up-left"
                         />
-                    </x-dashboard.nav.group>
+                    </x-nav.group>
                 @endauth
 
-                <x-dashboard.nav.group>
-                    <x-dashboard.nav.item
+                <x-nav.group>
+                    <x-nav.item
                         :text="__('Contact')"
                         :route="route('contact')"
                         :active="$nav['active'] === 'contact'"
                         icon="telephone"
                     />
 
-                    <x-dashboard.nav.item
+                    <x-nav.item
                         :text="__('Terms of Service')"
                         :route="route('terms')"
                         :active="$nav['active'] === 'terms'"
                         icon="file-text"
                     />
 
-                    <x-dashboard.nav.item
+                    <x-nav.item
                         :text="__('Privacy Policy')"
                         :route="route('privacy')"
                         :active="$nav['active'] === 'privacy'"
                         icon="shield-check"
                     />
 
-                    <x-dashboard.nav.item
+                    <x-nav.item
                         :text="__('Cookie Policy')"
                         :route="route('cookies')"
                         :active="$nav['active'] === 'cookies'"
                         icon="bar-chart"
                     />
-                </x-dashboard.nav.group>
+                </x-nav.group>
             </div>
         </nav>
     </div>

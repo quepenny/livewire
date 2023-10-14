@@ -5,7 +5,7 @@
     'searchMode' => false
 ])
 
-<x-dashboard.section x-data="resourceManager">
+<x-section x-data="resourceManager">
     {{ $slot }}
     
     <div class="flex flex-wrap -m-4">
@@ -13,7 +13,7 @@
             @isset($empty)
                 {{ $empty }}
             @else
-                <x-dashboard.empty
+                <x-empty
                     :section="$resourceName"
                     :show-subtitle="!$searchMode"
                     :show-button="!$searchMode"
@@ -31,4 +31,4 @@
     </div>
     
     {{ $resources->links('components.dashboard.resources.pagination') }}
-</x-dashboard.section>
+</x-section>

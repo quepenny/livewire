@@ -2,9 +2,9 @@
 
 document.addEventListener('alpine:init', () => {
     Alpine.data('importItems', ($wire) => ({
-        importList: $wire.entangle('importList').defer,
-        importFile: $wire.entangle('importFile').defer,
-        importFromFile: $wire.entangle('importFromFile').defer,
+        importList: $wire.entangle('importList'),
+        importFile: $wire.entangle('importFile'),
+        importFromFile: $wire.entangle('importFromFile'),
 
         toggleFileImport(e) {
             if (this.importFromFile) {

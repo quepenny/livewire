@@ -16,7 +16,7 @@
     x-data="resourceManager"
 >
     @if($canSearch)
-        <x-dashboard.resources.search-bar />
+        <x-resources.search-bar />
     @endif
 
     <div

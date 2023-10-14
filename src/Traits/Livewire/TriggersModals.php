@@ -4,8 +4,8 @@ namespace Quepenny\Livewire\Traits\Livewire;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Facades\Session;
-use Quepenny\Livewire\Http\Livewire\Modal\BaseModalComponent;
-use Quepenny\Livewire\Http\Livewire\Modal\Builders\BaseModalBuilder;
+use Quepenny\Livewire\Modal\BaseModalComponent;
+use Quepenny\Livewire\Modal\Builders\BaseModalBuilder;
 
 trait TriggersModals
 {
@@ -24,11 +24,16 @@ trait TriggersModals
             $params = $modal->toArray();
         }
 
-        $this->emit('openModal', 'modal.'.$modal->slug(), $params);
+        $this->dispatch(
+            'openModal',
+            component: 'modal.'.$modal->slug(),
+            arguments: $params
+        );
+
         // For opening modals on page component mount
         Session::flash('open-modal', [
-            'modal' => 'modal.'.$modal->slug(),
-            'params' => $params,
+            'component' => 'modal.'.$modal->slug(),
+            'arguments' => $params,
         ]);
     }
 }

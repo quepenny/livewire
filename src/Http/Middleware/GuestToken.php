@@ -12,6 +12,10 @@ class GuestToken
 {
     public function handle(Request $request, Closure $next)
     {
+        if (! config('quepenny.guest_members')) {
+            return $next($request);
+        }
+
         if (Auth::guest()) {
             $token = $request->cookie($this->tokenName());
 
