@@ -30,27 +30,27 @@ class AppServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../../public/icon' => public_path('icon'),
             __DIR__.'/../../public/.htaccess' => public_path('.htaccess'),
-        ], 'assets');
+        ], 'quepenny-assets');
 
         $this->publishes([
             __DIR__.'/../../config/livewire.php' => config_path('livewire.php'),
-        ], 'config');
+        ], 'quepenny-config');
 
         $this->publishes([
             __DIR__.'/../../lang/en/empty.php' => lang_path('en/empty.php'),
             __DIR__.'/../../lang/en/modals.php' => lang_path('en/modals.php'),
-        ], 'lang');
+        ], 'quepenny-lang');
 
         $this->publishes([
             __DIR__.'/../../src/Models/Guest.php' => app_path('Models/Guest.php'),
             __DIR__.'/../../src/Traits/Models/UserTrait.php' => app_path('Traits/Models/UserTrait.php'),
-        ], 'models');
+        ], 'quepenny-models');
 
         $this->publishes([
             __DIR__.'/../../resources/css' => resource_path('css'),
             __DIR__.'/../../resources/js' => resource_path('js'),
             __DIR__.'/../../resources/views' => resource_path('views'),
-        ], 'resources');
+        ], 'quepenny-resources');
 
         $this->publishes([
             __DIR__.'/../../.env' => base_path('.env'),
@@ -62,12 +62,12 @@ class AppServiceProvider extends ServiceProvider
             __DIR__.'/../../postcss.config.js' => base_path('postcss.config.js'),
             __DIR__.'/../../tailwind.config.js' => base_path('tailwind.config.js'),
             __DIR__.'/../../vite.config.js' => base_path('vite.config.js'),
-        ], 'setup');
+        ], 'quepenny-setup');
 
         $this->publishes([
             __DIR__.'/../../src/View/Components/AppLayout.php' => app_path('View/Components/AppLayout.php'),
             __DIR__.'/../../src/View/Components/Input.php' => app_path('View/Components/Input.php'),
             __DIR__.'/../../src/View/Components/Tooltip.php' => app_path('View/Components/Tooltip.php'),
-        ], 'components');
+        ], 'quepenny-components');
     }
 }
