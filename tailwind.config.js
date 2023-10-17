@@ -1,5 +1,4 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
-import forms from '@tailwindcss/forms';
 import plugin from 'flowbite/plugin';
 
 export default {
@@ -28,7 +27,6 @@ export default {
     },
 
     plugins: [
-        forms,
         plugin
     ]
 };
