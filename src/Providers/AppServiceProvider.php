@@ -34,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../../config/livewire.php' => config_path('livewire.php'),
+            __DIR__.'/../../config/quepenny.php' => config_path('quepenny.php'),
         ], ['quepenny', 'config']);
 
         $this->publishes([
