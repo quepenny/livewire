@@ -5,8 +5,8 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/css/quepenny.css',
-                'resources/js/quepenny.js'
+                'resources/css/app.css',
+                'resources/js/app.js'
             ],
             refresh: true,
         }),
