@@ -6,7 +6,7 @@ abstract class PageComponent extends BaseComponent
 {
     public function __construct(
         public string $title,
-        public array $nav,
+        public array $nav = [],
         public bool $showHeaderFooter = true
     ) {
     }

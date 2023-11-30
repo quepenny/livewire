@@ -3,6 +3,7 @@
 namespace Quepenny\Livewire;
 
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\Title;
 use Quepenny\Livewire\Http\Requests\EnquiryRequest;
 use Quepenny\Livewire\Traits\Livewire\ValidatesRequests;
 
@@ -27,10 +28,10 @@ class Enquiry extends PageComponent
 //        return new EnquiryMail(request());
     }
 
+    #[Title('Contact')]
     public function render(): View
     {
-        return view('livewire.enquiry')->layoutData([
-            'title' => 'Contact',
+        return view('livewire.enquiry')->with([
             'nav' => ['active' => 'contact'],
         ]);
     }

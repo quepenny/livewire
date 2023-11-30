@@ -1,6 +1,6 @@
-<x-content.title-subtitle
+<x-content.compliance
     :title="__('Terms of Service')"
-    :subtitle="__('Last Updated: :date', ['date' => '04/12/2022'])"
+    last-updated="27/11/2023"
 >
-    @include(__('quepenny::legal.terms'))
-</x-content.title-subtitle>
+    @include(__('legal.terms'))
+</x-content.compliance>
