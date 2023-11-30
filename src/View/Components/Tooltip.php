@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
-use Quepenny\Livewire\View\Components\BaseComponent;
+use Quepenny\Livewire\BaseComponent;
 
 class Tooltip extends BaseComponent
 {
