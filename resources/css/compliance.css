@@ -1,0 +1,27 @@
+.compliance p {
+    @apply mb-2 leading-loose text-gray-500;
+}
+
+.compliance h2 {
+    @apply my-4 text-2xl font-bold;
+}
+
+.compliance h3 {
+    @apply my-4 text-xl font-bold;
+}
+
+.compliance h4 {
+    @apply my-4 text-lg font-bold text-blue-600;
+}
+
+.compliance h5 {
+    @apply my-4 text-gray-500 font-bold;
+}
+
+.compliance ol {
+    @apply list-decimal pl-4 text-gray-500 pb-3;
+}
+
+.compliance ul {
+    @apply list-disc pl-4 text-gray-500 pb-3;
+}
