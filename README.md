@@ -5,7 +5,7 @@ Livewire starter-kit for Quepenny projects
 Add this to the projects `composer.json` (with the latest package version):
 ```
 "require": {
-    "quepenny/livewire": "1.5.3",
+    "quepenny/livewire": "*",
 },
 "repositories": [
     {
