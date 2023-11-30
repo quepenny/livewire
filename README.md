@@ -37,11 +37,9 @@ Add this to the project's `composer.json`:
 },
 "repositories": [
     {
-        "url": "/path/to/quepenny/livewire",
+        "url": "/home/paulo/quepenny/livewire",
         "type": "path",
-        "options": {
-            "symlink": true
-        }
+        "options": { "symlink": true }
     }
 ],
 ```
