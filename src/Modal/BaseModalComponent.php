@@ -4,6 +4,7 @@ namespace Quepenny\Livewire\Modal;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
+use Livewire\Attributes\Computed;
 use LivewireUI\Modal\ModalComponent;
 use Quepenny\Livewire\Modal\Contracts\CustomActions;
 use Quepenny\Livewire\Traits\Livewire\Toastable;
@@ -29,6 +30,8 @@ abstract class BaseModalComponent extends ModalComponent
 
     public bool $destructiveAction = false;
 
+    public bool $showHeader = true;
+
     public bool $showConfirmButton = true;
 
     protected static bool $closeModalOnEscape = true;
@@ -42,47 +45,52 @@ abstract class BaseModalComponent extends ModalComponent
         $this instanceof CustomActions && $this->registerCustomActions();
     }
 
-    public function getTitleProperty(): string
+    #[Computed]
+    public function title(): string
     {
         return $this->trans('title') ?? Str::title(Str::snake(class_basename($this), ' '));
     }
 
-    public function getSubtitleProperty(): ?string
+    #[Computed]
+    public function subtitle(): ?string
     {
         return $this->trans('subtitle');
     }
 
-    public function getBodyProperty(): string|View
+    #[Computed]
+    public function body(): string|View
     {
         return $this->trans('body');
     }
 
-    public function getConfirmTextProperty(): string
+    #[Computed]
+    public function confirmText(): string
     {
         return $this->trans('confirm') ?? 'Okay';
     }
 
-    final public function getCancelTextProperty(): string
+    #[Computed]
+    final public function cancelText(): string
     {
         return $this->trans('cancel') ?? 'Cancel';
     }
 
-    public function confirm()
+    public function confirm(): void
     {
         $this->closeModal();
     }
 
-    public function cancel()
+    public function cancel(): void
     {
         $this->closeModal();
     }
 
-    public function executeAction(string $action)
+    public function executeAction(string $action): void
     {
         $this->customActions[$action]['callback']();
     }
 
-    public function setCustomAction(string $action, callable $callback)
+    public function setCustomAction(string $action, callable $callback): void
     {
         $this->customActions[$action] = [
             'name' => $action,
@@ -91,7 +99,7 @@ abstract class BaseModalComponent extends ModalComponent
         ];
     }
 
-    final public static function slug(): string
+    public static function slug(): string
     {
         return once(
             self::$slug,
