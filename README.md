@@ -54,7 +54,7 @@ services:
 ```
 This creates a folder on the docker image for quepenny/livewire.
 
-Then create a `Dockerfile` on the project root like this:
+Then update the `Dockerfile` on the project root like this:
 ```
 # Dockerfile
 
