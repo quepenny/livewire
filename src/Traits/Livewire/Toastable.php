@@ -26,9 +26,6 @@ trait Toastable
 
     private function toast(string $mode, string $message): void
     {
-        $this->dispatchBrowserEvent('wire-toast', [
-            'mode' => $mode,
-            'message' => $message,
-        ]);
+        $this->dispatch('wire-toast', mode: $mode, message: $message);
     }
 }
