@@ -34,6 +34,10 @@ abstract class BaseModalComponent extends ModalComponent
 
     public bool $showConfirmButton = true;
 
+    public bool $showCancelButton = true;
+
+    public bool $showExitCross = true;
+
     protected static bool $closeModalOnEscape = true;
 
     protected static bool $closeModalOnClickAway = true;

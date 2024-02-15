@@ -31,7 +31,7 @@ trait TriggersModals
         );
 
         // For opening modals on page component mount
-        Session::flash('open-modal', [
+        Session::put('open-modal', [
             'component' => 'modal.'.$modal->slug(),
             'arguments' => $params,
         ]);
