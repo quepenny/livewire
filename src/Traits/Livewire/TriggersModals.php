@@ -25,13 +25,13 @@ trait TriggersModals
         }
 
         $this->dispatch(
-            'openModal',
+                       'openModal',
             component: 'modal.'.$modal->slug(),
             arguments: $params
         );
 
         // For opening modals on page component mount
-        Session::put('open-modal', [
+        Session::now('open-modal', [
             'component' => 'modal.'.$modal->slug(),
             'arguments' => $params,
         ]);

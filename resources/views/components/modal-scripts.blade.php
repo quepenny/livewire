@@ -4,15 +4,9 @@
     <script>
         const modal = @json(session('open-modal'));
 
-        document.addEventListener('livewire:initialized', () => {
-            Livewire.dispatch('openModal', {
-                component: modal.component,
-                arguments: modal.arguments
-            });
-        })
+        document.addEventListener('livewire:initialized', () => Livewire.dispatch('openModal', {
+            component: modal.component,
+            arguments: modal.arguments
+        }));
     </script>
-
-    @php
-        session()->forget('open-modal');
-    @endphp
 @endif

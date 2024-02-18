@@ -1,27 +1,31 @@
 <aside>
-    <div class="flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600">
-        <header>
-            <h1 class="block text-lg font-semibold text-gray-900 dark:text-white">
-                {{ $this->title }}
-            </h1>
-            
-            @if($this->subtitle)
-                <p class="text-sm leading-relaxed text-gray-500 dark:text-gray-400">
-                    {{ $this->subtitle }}
-                </p>
+    @if($showHeader)
+        <div class="flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600">
+            <header>
+                <h1 class="block text-lg font-semibold text-gray-900 dark:text-white">
+                    {{ $this->title }}
+                </h1>
+
+                @if($this->subtitle)
+                    <p class="text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+                        {{ $this->subtitle }}
+                    </p>
+                @endif
+            </header>
+
+            @if($showExitCross)
+                <button
+                    type="button"
+                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                    data-modal-toggle="defaultModal"
+                    wire:click="cancel"
+                >
+                    <x-bs-icon name="x" />
+                </button>
             @endif
-        </header>
-        
-        <button
-            type="button"
-            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-            data-modal-toggle="defaultModal"
-            wire:click="cancel"
-        >
-            <x-icon name="x" />
-        </button>
-    </div>
-    
+        </div>
+    @endif
+
     @if($this->body)
         <div class="p-6 space-y-6">
             {{ $this->body }}
