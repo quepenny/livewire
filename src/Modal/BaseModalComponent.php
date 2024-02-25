@@ -8,7 +8,6 @@ use Livewire\Attributes\Computed;
 use LivewireUI\Modal\ModalComponent;
 use Quepenny\Livewire\Modal\Contracts\CustomActions;
 use Quepenny\Livewire\Traits\Livewire\Toastable;
-use Quepenny\Livewire\Traits\Livewire\ValidatesInput;
 
 /**
  * docs: https://github.com/wire-elements/modal
@@ -22,7 +21,6 @@ use Quepenny\Livewire\Traits\Livewire\ValidatesInput;
 abstract class BaseModalComponent extends ModalComponent
 {
     use Toastable;
-    use ValidatesInput;
 
     public static string $slug = '';
 

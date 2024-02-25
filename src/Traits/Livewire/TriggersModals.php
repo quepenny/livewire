@@ -16,19 +16,13 @@ trait TriggersModals
         return $this->listeners;
     }
 
-    public function modal(
-        BaseModalComponent|BaseModalBuilder $modal,
-        array $params = []
-    ): void {
+    public function modal(BaseModalComponent|BaseModalBuilder $modal, array $params = []): void
+    {
         if ($modal instanceof Arrayable) {
             $params = $modal->toArray();
         }
 
-        $this->dispatch(
-                       'openModal',
-            component: 'modal.'.$modal->slug(),
-            arguments: $params
-        );
+        $this->dispatch('openModal', component: 'modal.'.$modal->slug(), arguments: $params);
 
         // For opening modals on page component mount
         Session::now('open-modal', [
