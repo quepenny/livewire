@@ -8,14 +8,12 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 use Quepenny\Livewire\Traits\Livewire\TriggersModals;
-use Quepenny\Livewire\Traits\Livewire\ValidatesRequests;
 use Quepenny\Livewire\Traits\Metable;
 
 abstract class ResourceModal extends BaseModalComponent
 {
     use Metable;
     use TriggersModals;
-    use ValidatesRequests;
 
     public ?Model $resource = null;
 
@@ -74,7 +72,7 @@ abstract class ResourceModal extends BaseModalComponent
         }
     }
 
-    public function cancel()
+    public function cancel(): void
     {
         $this->forceClose()->closeModalWithEvents(['$refresh']);
     }

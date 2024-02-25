@@ -6,12 +6,9 @@ use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Contracts\View\View;
 use Illuminate\Validation\ValidationException;
 use Laravel\Jetstream\Http\Livewire\LogoutOtherBrowserSessionsForm;
-use Quepenny\Livewire\Traits\Livewire\ValidatesRequests;
 
 class LogoutOtherSessions extends BaseModalComponent
 {
-    use ValidatesRequests;
-
     public string $password = '';
 
     public bool $destructiveAction = true;
@@ -24,7 +21,7 @@ class LogoutOtherSessions extends BaseModalComponent
     /**
      * @throws ValidationException
      */
-    public function confirm(StatefulGuard $guard = null)
+    public function confirm(StatefulGuard $guard = null): void
     {
         $form = new LogoutOtherBrowserSessionsForm;
         $form->password = $this->password;
