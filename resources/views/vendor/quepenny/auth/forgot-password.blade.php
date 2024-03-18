@@ -1,4 +1,4 @@
-<x-form-page
+<x-layouts.form-page
     :page-title="__('Reset Password')"
     :main-title="__('Forgot Your Password?')"
     :sub-title="__('quepenny::auth.forgot-password')"
@@ -27,4 +27,4 @@
             href="{{ route('login') }}"
         >{{ __('Remember Now?') }}</a>
     </x-slot>
-</x-form-page>
+</x-layouts.form-page>

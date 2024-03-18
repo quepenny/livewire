@@ -1,4 +1,4 @@
-<x-form-page
+<x-layouts.form-page
     :main-title="__('Sign In')"
     :sub-title="__('Shop With Us')"
     :form-action="route('login')"
@@ -47,4 +47,4 @@
             href="{{ route('password.request') }}"
         >{{ __('Forgot password?') }}</a>
     </x-slot>
-</x-form-page>
+</x-layouts.form-page>

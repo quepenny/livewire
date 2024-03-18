@@ -1,4 +1,4 @@
-<x-form-page
+<x-layouts.form-page
     :main-title="__('Sign Up')"
     :sub-title="__('Create an Account')"
     :form-action="route('register')"
@@ -63,4 +63,4 @@
             >{{ __('Sign In') }}</a>
         </span>
     </x-slot>
-</x-form-page>
+</x-layouts.form-page>

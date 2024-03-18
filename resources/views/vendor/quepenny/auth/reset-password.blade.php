@@ -1,4 +1,4 @@
-<x-form-page
+<x-layouts.form-page
     :main-title="__('Reset Password')"
     :form-action="route('password.update')"
     :button-text="__('Reset Password')"
@@ -25,4 +25,4 @@
         field="password_confirmation"
         type="password"
     />
-</x-form-page>
+</x-layouts.form-page>
