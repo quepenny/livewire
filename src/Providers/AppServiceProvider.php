@@ -6,6 +6,11 @@ use App\Models\Guest;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
+use Quepenny\Livewire\Cookies;
+use Quepenny\Livewire\Enquiry;
+use Quepenny\Livewire\Privacy;
+use Quepenny\Livewire\Terms;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
         $this->morphMap();
         $this->publishAssets();
+        $this->registerLivewireComponents();
     }
 
     private function morphMap(): void
@@ -70,5 +76,13 @@ class AppServiceProvider extends ServiceProvider
             __DIR__.'/../../src/View/Components/Input.php' => app_path('View/Components/Input.php'),
             __DIR__.'/../../src/View/Components/Tooltip.php' => app_path('View/Components/Tooltip.php'),
         ], ['quepenny', 'components']);
+    }
+
+    private function registerLivewireComponents(): void
+    {
+        Livewire::component('quepenny::livewire.cookies', Cookies::class);
+        Livewire::component('quepenny::livewire.contact', Enquiry::class);
+        Livewire::component('quepenny::livewire.privacy', Privacy::class);
+        Livewire::component('quepenny::livewire.terms', Terms::class);
     }
 }
