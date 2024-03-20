@@ -2,28 +2,22 @@
 
 namespace Quepenny\Livewire;
 
+use Quepenny\Livewire\Forms\EnquiryForm;
 use Illuminate\Contracts\View\View;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
-use Quepenny\Livewire\Http\Requests\EnquiryRequest;
 
 class Enquiry extends PageComponent
 {
-    public string $name = '';
+    public EnquiryForm $form;
 
-    public string $email = '';
+    public bool $submitted = false;
 
-    public string $subject = '';
-
-    public string $message = '';
-
-    public bool $terms = false;
-
-    public function submit()
+    public function submit(): void
     {
-        $this->validateRequest(new EnquiryRequest);
-
-//        return new EnquiryMail(request());
+        $this->form->store();
+        $this->form->notify();
+        $this->submitted = true;
     }
 
     #[Title('Contact')]
@@ -35,7 +29,6 @@ class Enquiry extends PageComponent
             'mainTitle' => __('quepenny::enquiry.title'),
             'subTitle' => __('quepenny::enquiry.subtitle'),
             'buttonText' => __('Contact'),
-            'formAction' => route('contact'),
         ]);
     }
 }
