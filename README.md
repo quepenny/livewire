@@ -50,26 +50,22 @@ Add this volume to the `laravel-test` service on `docker-compose.yml`:
 services:
     laravel.test:
         volumes:
-            - 'path/to/quepenny/livewire:/var/www/quepenny/livewire'
+            - 'path/to/local/quepenny/livewire:/var/www/quepenny/livewire'
 ```
 This creates a folder on the docker image for quepenny/livewire.
 
-Then update the `Dockerfile` on the project root like this:
-```
-# Dockerfile
-
-FROM sail-8.2/app
-
-# Create a symbolic link to the local package
-RUN ln -s /var/www/quepenny/livewire /var/www/html/vendor/quepenny/livewire
-```
-This creates a symlink to the local quepenny/livewire package on the docker container (so you can view your live changes).
-
-Finally run
+Then run the following:
 ```
 sail build --no-cache
 sail up -d
+sail shell
+rm /var/www/html/vendor/quepenny/livewire
+ln -s /var/www/quepenny/livewire /var/www/html/vendor/quepenny/livewire
+sail stop
+sail up -d
 ```
+This creates a symlink to the local quepenny/livewire package on the docker container
+(so you can view your live changes).
 
 ## Deployment
 1. Commit your changes.
