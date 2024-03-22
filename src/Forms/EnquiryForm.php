@@ -29,11 +29,4 @@ class EnquiryForm extends Form
 
         return Enquiry::query()->create($this->except('terms'));
     }
-
-    public function notify(): void
-    {
-//        $this->validate();
-//
-//        Enquiry::query()->create($this->all());
-    }
 }

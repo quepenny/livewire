@@ -6,6 +6,7 @@ use Quepenny\Livewire\Forms\EnquiryForm;
 use Illuminate\Contracts\View\View;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
+use Quepenny\Livewire\Notifications\EnquirySubmitted;
 
 class Enquiry extends PageComponent
 {
@@ -15,8 +16,8 @@ class Enquiry extends PageComponent
 
     public function submit(): void
     {
-        $this->form->store();
-        $this->form->notify();
+        $enquiry = $this->form->store();
+        $enquiry->notify(new EnquirySubmitted);
         $this->submitted = true;
     }
 
