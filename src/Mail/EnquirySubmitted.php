@@ -22,7 +22,7 @@ class EnquirySubmitted extends Mailable implements ShouldQueue
     public function envelope(): Envelope
     {
         return new Envelope(
-            to: config('mail.to.address'),
+            to: config('mail.admin.address'),
             subject: 'Enquiry Submitted: ' . $this->enquiry->subject,
         );
     }
