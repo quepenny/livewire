@@ -43,7 +43,7 @@ Add this to the project's `composer.json`:
     }
 ],
 ```
-Then `composer install`.
+Then `composer update quepenny/livewire`.
 
 Add this volume to the `laravel-test` service on `docker-compose.yml`:
 ```
@@ -56,13 +56,11 @@ This creates a folder on the docker image for quepenny/livewire.
 
 Then run the following:
 ```
-sail build --no-cache
-sail up -d
-sail shell
-rm /var/www/html/vendor/quepenny/livewire
-ln -s /var/www/quepenny/livewire /var/www/html/vendor/quepenny/livewire
-sail stop
-sail up -d
+sail stop && sail build --no-cache
+sail up -d && sail shell
+rm /var/www/html/vendor/quepenny/livewire && ln -s /var/www/quepenny/livewire /var/www/html/vendor/quepenny/livewire
+exit
+sail stop && sail up -d
 ```
 This creates a symlink to the local quepenny/livewire package on the docker container
 (so you can view your live changes).

@@ -24,6 +24,8 @@ Route::get('contact', Enquiry::class)->name('contact');
 Route::get('terms', Terms::class)->name('terms');
 Route::get('privacy', Privacy::class)->name('privacy');
 Route::get('cookies', Cookies::class)->name('cookies');
+Route::get('email/verified', fn () => view('auth.email-verified'))->name('email.verified');
+
 Route::post('deploy', DeployController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
