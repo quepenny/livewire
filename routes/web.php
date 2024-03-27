@@ -28,7 +28,7 @@ Route::get('email/verified', fn () => view('auth.email-verified'))->name('email.
 
 Route::post('deploy', DeployController::class);
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('settings', Settings::class)->name('settings');
 });
 
