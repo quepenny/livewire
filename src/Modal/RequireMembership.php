@@ -5,6 +5,7 @@ namespace Quepenny\Livewire\Modal;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\URL;
+use Livewire\Attributes\Computed;
 use Quepenny\Livewire\Modal\Contracts\CustomActions;
 use Quepenny\Livewire\Traits\Makeable;
 
@@ -26,9 +27,10 @@ class RequireMembership extends BaseModalComponent implements CustomActions, Arr
         return ['message' => $this->message];
     }
 
-    public function getBodyProperty(): string|View
+    #[Computed]
+    public function body(): string|View
     {
-        return $this->message ?: parent::getBodyProperty();
+        return $this->message ?: parent::body();
     }
 
     public function registerCustomActions(): void
@@ -38,12 +40,12 @@ class RequireMembership extends BaseModalComponent implements CustomActions, Arr
         });
     }
 
-    public function confirm()
+    public function confirm(): void
     {
         $this->redirectRoute('register');
     }
 
-    public function cancel()
+    public function cancel(): void
     {
         $this->redirect(URL::previous());
     }

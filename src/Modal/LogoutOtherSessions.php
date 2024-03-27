@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Contracts\View\View;
 use Illuminate\Validation\ValidationException;
 use Laravel\Jetstream\Http\Livewire\LogoutOtherBrowserSessionsForm;
+use Livewire\Attributes\Computed;
 
 class LogoutOtherSessions extends BaseModalComponent
 {
@@ -13,7 +14,8 @@ class LogoutOtherSessions extends BaseModalComponent
 
     public bool $destructiveAction = true;
 
-    public function getBodyProperty(): View
+    #[Computed]
+    public function body(): View
     {
         return view('livewire.forms.logout-other-sessions');
     }

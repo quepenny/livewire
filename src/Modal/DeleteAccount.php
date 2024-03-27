@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Laravel\Jetstream\Contracts\DeletesUsers;
 use Laravel\Jetstream\Http\Livewire\DeleteUserForm;
+use Livewire\Attributes\Computed;
 
 class DeleteAccount extends BaseModalComponent
 {
@@ -15,7 +16,8 @@ class DeleteAccount extends BaseModalComponent
 
     public string $password = '';
 
-    public function getBodyProperty(): View
+    #[Computed]
+    public function body(): View
     {
         return view('livewire.forms.delete-account');
     }
