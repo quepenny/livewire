@@ -3,7 +3,7 @@
 namespace Quepenny\Livewire\Modal;
 
 use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 use Livewire\Attributes\Computed;
 use Quepenny\Livewire\Modal\Contracts\CustomActions;
@@ -13,31 +13,28 @@ class RequireMembership extends BaseModalComponent implements CustomActions, Arr
 {
     use Makeable;
 
-    public string $message = '';
+    public bool $reloadOnClose = false;
 
-    public function setMessage(string $key): static
+    public static function slug(): string
     {
-        $this->message = $key;
-
-        return $this;
-    }
-
-    public function toArray(): array
-    {
-        return ['message' => $this->message];
-    }
-
-    #[Computed]
-    public function body(): string|View
-    {
-        return $this->message ?: parent::body();
+        return 'quepenny::livewire.modal.require-membership';
     }
 
     public function registerCustomActions(): void
     {
-        $this->setCustomAction('sign-in', function () {
+        $this->setCustomAction('login', function () {
             $this->redirectRoute('login');
         });
+    }
+
+    /**
+     * Redirect back to the given route after successful login.
+     */
+    public function redirectBackTo(string $route): static
+    {
+        Session::put('url.intended', $route);
+
+        return $this;
     }
 
     public function confirm(): void
@@ -47,6 +44,26 @@ class RequireMembership extends BaseModalComponent implements CustomActions, Arr
 
     public function cancel(): void
     {
-        $this->redirect(URL::previous());
+        $this->reloadOnClose ? $this->redirect(URL::previous()) : $this->closeModal();
+    }
+
+    #[Computed]
+    public function confirmText(): string
+    {
+        return $this->trans('confirm', slug: 'quepenny::modal.require-membership') ?? 'Sign Up';
+    }
+
+    #[Computed]
+    public function cancelText(): string
+    {
+        return $this->trans('cancel', slug: 'quepenny::modal.require-membership') ?? 'Cancel';
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'transSlug' => $this->transSlug,
+            'reloadOnClose' => $this->reloadOnClose,
+        ];
     }
 }

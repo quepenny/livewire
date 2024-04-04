@@ -22,7 +22,7 @@ abstract class BaseModalComponent extends ModalComponent
 {
     use Toastable;
 
-    public static string $slug = '';
+    private static string $slug = '';
 
     public ?string $transSlug = null;
 
@@ -72,9 +72,16 @@ abstract class BaseModalComponent extends ModalComponent
     }
 
     #[Computed]
-    final public function cancelText(): string
+    public function cancelText(): string
     {
         return $this->trans('cancel') ?? 'Cancel';
+    }
+
+    final public function withTransSlug(string $slug): static
+    {
+        $this->transSlug = $slug;
+
+        return $this;
     }
 
     public function confirm(): void
@@ -105,7 +112,7 @@ abstract class BaseModalComponent extends ModalComponent
     {
         return once(
             self::$slug,
-            fn () => Str::snake(class_basename(static::class), '-')
+            fn () => 'modal.'.Str::snake(class_basename(static::class), '-')
         );
     }
 
@@ -114,9 +121,9 @@ abstract class BaseModalComponent extends ModalComponent
         return $this->transSlug ?? $this->slug();
     }
 
-    protected function trans(string $key, array $replace = []): ?string
+    protected function trans(string $key, array $replace = [], string $slug = ''): ?string
     {
-        $key = "modals.{$this->transSlug()}.{$key}";
+        $key = $slug ? "$slug.$key" : "{$this->transSlug()}.$key";
         $string = __($key, $replace);
 
         return $string === $key ? null : $string;
