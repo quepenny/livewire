@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class ConfirmPasswordRequest extends BaseFormRequest
 {
-    public function rules(Model|int|null $model = null): array
+    public function rules(Model|int $model = null): array
     {
         return [
             'password' => ['required', function ($attr, $value, $fail) {

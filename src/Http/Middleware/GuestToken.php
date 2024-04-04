@@ -2,11 +2,11 @@
 
 namespace Quepenny\Livewire\Http\Middleware;
 
+use App\Models\Guest;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use App\Models\Guest;
 
 class GuestToken
 {
@@ -35,6 +35,6 @@ class GuestToken
 
     private function tokenName(): string
     {
-        return strtolower(config('app.name')) . '-guest-token';
+        return strtolower(config('app.name')).'-guest-token';
     }
 }

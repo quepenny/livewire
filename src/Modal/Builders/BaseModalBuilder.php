@@ -9,8 +9,8 @@ use Quepenny\Livewire\Traits\Metable;
 
 abstract class BaseModalBuilder implements Arrayable
 {
-    use Metable;
     use Makeable;
+    use Metable;
 
     public static string $modalSlug = '';
 

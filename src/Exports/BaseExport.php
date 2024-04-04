@@ -10,9 +10,9 @@ use Quepenny\Livewire\Traits\Makeable;
 
 class BaseExport implements Responsable
 {
+    use Exportable;
     use Makeable;
     use Queueable;
-    use Exportable;
 
     protected string $filePath;
 

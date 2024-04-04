@@ -1,14 +1,14 @@
 <?php
 
+use App\Models\Guest;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Guest;
 
 if (! function_exists('guest')) {
     /**
      * Return guest-member
      */
-    function guest(): Guest|null
+    function guest(): ?Guest
     {
         return session('guest');
     }
@@ -25,6 +25,7 @@ if (! function_exists('is_divisible')) {
         }
 
         $division = $dividend / $divisor;
+
         // Confirm division is a whole number
         // Due to issues with float precision, direct comparison isn't ideal
         return round($division) == strval($division);

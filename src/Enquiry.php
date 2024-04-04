@@ -2,10 +2,10 @@
 
 namespace Quepenny\Livewire;
 
-use Quepenny\Livewire\Forms\EnquiryForm;
 use Illuminate\Contracts\View\View;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
+use Quepenny\Livewire\Forms\EnquiryForm;
 use Quepenny\Livewire\Notifications\EnquirySubmitted;
 
 class Enquiry extends PageComponent
