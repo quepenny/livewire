@@ -21,11 +21,11 @@ class Enquiry extends PageComponent
         $this->submitted = true;
     }
 
-    #[Title('Contact')]
     #[Layout('components.layouts.form-page')]
     public function render(): View
     {
         return view('livewire.enquiry')->layoutData([
+            'title' => __('pages.contact.title') ?: 'Contact ',
             'nav' => ['active' => 'contact'],
             'mainTitle' => __('quepenny::enquiry.title'),
             'subTitle' => __('quepenny::enquiry.subtitle'),
