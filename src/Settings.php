@@ -8,10 +8,12 @@ use Livewire\Attributes\Title;
 
 class Settings extends PageComponent
 {
-    #[Title('Settings')]
     #[Layout('components.layouts.guest')]
     public function render(): View
     {
-        return view('livewire.settings');
+        return view('livewire.settings')->layoutData([
+            'title' => __('pages.settings.title') ?: 'Settings',
+            'nav' => ['active' => 'settings'],
+        ]);
     }
 }
