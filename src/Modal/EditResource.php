@@ -18,7 +18,7 @@ class EditResource extends ResourceModal implements CustomActions
 {
     use AuthorizesRequests;
 
-    public ?string $transSlug = 'edit-resource';
+    public ?string $transSlug = 'modal.edit-resource';
 
     public function getResourceRequestProperty(): BaseFormRequest
     {
