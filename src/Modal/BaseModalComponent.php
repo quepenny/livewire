@@ -22,8 +22,6 @@ abstract class BaseModalComponent extends ModalComponent
 {
     use Toastable;
 
-    private static string $slug = '';
-
     public ?string $transSlug = null;
 
     public bool $destructiveAction = false;
@@ -110,10 +108,7 @@ abstract class BaseModalComponent extends ModalComponent
 
     public static function slug(): string
     {
-        return once(
-            self::$slug,
-            fn () => 'modal.'.Str::snake(class_basename(static::class), '-')
-        );
+        return once(fn () => 'modal.'.Str::snake(class_basename(static::class), '-'));
     }
 
     final public function transSlug(): string

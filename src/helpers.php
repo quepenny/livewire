@@ -32,21 +32,6 @@ if (! function_exists('is_divisible')) {
     }
 }
 
-if (! function_exists('once')) {
-    /**
-     * Assign a value to an instance/class variable ONCE via a callback
-     * Subsequent calls will return that same value WITHOUT using the callback
-     */
-    function once(mixed &$var, callable $callback): mixed
-    {
-        if (filled($var)) {
-            return $var;
-        }
-
-        return $var = $callback();
-    }
-}
-
 if (! function_exists('str_to_num')) {
     /**
      * Create number from numeric string

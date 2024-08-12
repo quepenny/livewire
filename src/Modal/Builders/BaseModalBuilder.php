@@ -12,11 +12,9 @@ abstract class BaseModalBuilder implements Arrayable
     use Makeable;
     use Metable;
 
-    public static string $modalSlug = '';
-
     final public static function slug(): string
     {
-        return once(self::$modalSlug, fn () => 'modal.'.Str::snake(
+        return once(fn () => 'modal.'.Str::snake(
             str_replace('Builder', '', class_basename(static::class)),
             '-'
         ));
