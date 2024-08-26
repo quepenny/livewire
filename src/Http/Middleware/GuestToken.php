@@ -33,7 +33,7 @@ class GuestToken
         ) : $response;
     }
 
-    private function tokenName(): string
+    public static function tokenName(): string
     {
         return strtolower(config('app.name')).'-guest-token';
     }
