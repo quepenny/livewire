@@ -72,6 +72,7 @@ class AppServiceProvider extends ServiceProvider
             __DIR__.'/../../postcss.config.js' => base_path('postcss.config.js'),
             __DIR__.'/../../tailwind.config.js' => base_path('tailwind.config.js'),
             __DIR__.'/../../vite.config.js' => base_path('vite.config.js'),
+            __DIR__.'/../../.phpstorm.meta.php' => base_path('.phpstorm.meta.php'),
         ], ['quepenny', 'setup']);
 
         $this->publishes([
