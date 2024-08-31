@@ -37,7 +37,7 @@ Add this to the project's `composer.json`:
 },
 "repositories": [
     {
-        "url": "/home/paulo/quepenny/livewire",
+        "url": "/home/paul-ogbeiwi/Projects/quepenny/livewire",
         "type": "path",
         "options": { "symlink": true }
     }
