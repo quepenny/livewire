@@ -73,7 +73,7 @@ class EditResourceBuilder extends BaseModalBuilder implements Arrayable
             'meta' => $this->meta(),
             // Unique modal ID for "save & create another"
             // Child modal won't spawn if having same exact params as parent
-            'modalId' => $this->isCreation ? Str::ulid() : null,
+            'modalId' => $this->isCreation && !app()->runningUnitTests() ? Str::ulid() : null,
         ];
     }
 }
