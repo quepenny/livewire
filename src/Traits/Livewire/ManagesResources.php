@@ -2,13 +2,16 @@
 
 namespace Quepenny\Livewire\Traits\Livewire;
 
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Laravel\Scout;
 use Livewire\WithPagination;
 use Quepenny\Livewire\Modal\Builders\DeleteResourceBuilder;
 use Quepenny\Livewire\Modal\Builders\EditResourceBuilder;
+use Quepenny\Livewire\Modal\RequireMembership;
 
 /**
  * @property-read LengthAwarePaginator $resources
@@ -16,10 +19,16 @@ use Quepenny\Livewire\Modal\Builders\EditResourceBuilder;
 trait ManagesResources
 {
     use WithPagination;
+    use TriggersModals;
+    use AuthorizesRequests;
 
     public string $search = '';
 
     protected int $resourcesPerPage = 15;
+
+    abstract public function resourcesQuery(): Builder;
+
+    abstract protected function resource(): Eloquent\Model;
 
     public function updatedSearch($value): void
     {
@@ -44,17 +53,33 @@ trait ManagesResources
             : $this->resourcesQuery();
     }
 
-    public function edit(int $id = 0): void
+    public function create(): void
     {
-        $this->modal(EditResourceBuilder::make($this->resource()::class, $id));
+        try {
+            $this->authorize('create', $this->resourceClass());
+            $this->modal(EditResourceBuilder::make($this->resourceClass()));
+        } catch (AuthorizationException) {
+            $this->modal(new RequireMembership);
+        }
+    }
+
+    public function edit(int $id, string $name = ''): void
+    {
+        $this->authorize('view', $this->resourceClass());
+
+        $this->modal(
+            EditResourceBuilder::make($this->resourceClass(), $id)
+                ->setResourceAttributes(['name' => $name])
+        );
     }
 
     public function delete(int $id, string $name): void
     {
-        $this->modal(DeleteResourceBuilder::make($this->resource()::class, $id, $name));
+        $this->modal(DeleteResourceBuilder::make($this->resourceClass(), $id, $name));
     }
 
-    abstract public function resourcesQuery(): Builder;
-
-    abstract protected function resource(): Eloquent\Model;
+    public function resourceClass(): string
+    {
+        return $this->resource()::class;
+    }
 }
