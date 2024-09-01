@@ -53,6 +53,12 @@ class MacroServiceProvider extends ServiceProvider
 
     private function livewireTestable(): void
     {
+        $this->assertModalDispatched();
+        $this->assertToastDispatched();
+    }
+
+    private function assertModalDispatched(): void
+    {
         Testable::macro('assertModalDispatched', function (BaseModalComponent|BaseModalBuilder $modal, $params = []) {
             $eventParams = [
                 'component' => $modal::slug(),
@@ -68,6 +74,18 @@ class MacroServiceProvider extends ServiceProvider
                 Session::get('open-modal'),
                 $eventParams,
                 "Failed asserting that {$modal::slug()} was dispatched using a session variable."
+            );
+
+            return $this;
+        });
+    }
+
+    private function assertToastDispatched(): void
+    {
+        Testable::macro('assertToastDispatched', function (string $mode, string $message) {
+            PHPUnit::assertTrue(
+                $this->testDispatched('wire-toast', compact('mode', 'message'))['test'],
+                "Failed asserting that '$mode' toast was dispatched with message: $message."
             );
 
             return $this;
