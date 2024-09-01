@@ -14,7 +14,7 @@ abstract class BaseModalBuilder implements Arrayable
 
     final public static function slug(): string
     {
-        return once(fn () => 'modal.'.Str::snake(
+        return once(fn () => 'quepenny::livewire.modal.'.Str::snake(
             str_replace('Builder', '', class_basename(static::class)),
             '-'
         ));

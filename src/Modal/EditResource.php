@@ -6,6 +6,7 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Str;
+use Livewire\Attributes\Computed;
 use Quepenny\Livewire\Http\Requests\BaseFormRequest;
 use Quepenny\Livewire\Modal\Builders\EditResourceBuilder;
 use Quepenny\Livewire\Modal\Contracts\CustomActions;
@@ -18,14 +19,21 @@ class EditResource extends ResourceModal implements CustomActions
 {
     use AuthorizesRequests;
 
-    public ?string $transSlug = 'modal.edit-resource';
+    public ?string $transSlug = 'quepenny::modal.edit-resource';
 
-    public function getResourceRequestProperty(): BaseFormRequest
+    public static function slug(): string
+    {
+        return 'quepenny::livewire.modal.edit-resource';
+    }
+
+    #[Computed]
+    public function resourceRequest(): BaseFormRequest
     {
         return BaseFormRequest::requestFor($this->resource::class);
     }
 
-    public function getTitleProperty(): string
+    #[Computed]
+    public function title(): string
     {
         return $this->trans($this->isCreation ? 'create-title' : 'edit-title', [
             'resourceName' => $this->resourceName,
@@ -33,21 +41,24 @@ class EditResource extends ResourceModal implements CustomActions
         ]);
     }
 
-    public function getSubtitleProperty(): string
+    #[Computed]
+    public function subtitle(): string
     {
         return $this->isCreation ? '' : $this->trans('edit-subtitle', [
             'resourceTitle' => $this->resourceTitle,
         ]);
     }
 
-    public function getBodyProperty(): string|View
+    #[Computed]
+    public function body(): string|View
     {
         $form = Str::singular(str_replace('_', '-', $this->resource->getTable()));
 
         return view("livewire.forms.{$form}", $this->meta);
     }
 
-    public function getConfirmTextProperty(): string
+    #[Computed]
+    public function confirmText(): string
     {
         return $this->trans(
             $this->isCreation ? 'create-confirm' : 'edit-confirm'
@@ -63,7 +74,7 @@ class EditResource extends ResourceModal implements CustomActions
     {
         $this->validateRequest($this->resourceRequest, $this->resource);
         $this->resource->save();
-        $this->success(__('resources.saved', ['resource' => $this->resourceName]));
+        $this->success(__('quepenny::resources.saved', ['resource' => $this->resourceName]));
     }
 
     public function rules(): array
@@ -71,7 +82,8 @@ class EditResource extends ResourceModal implements CustomActions
         return $this->resourceRequest->rules($this->resource);
     }
 
-    public function getIsCreationProperty(): bool
+    #[Computed]
+    public function isCreation(): bool
     {
         return $this->resource->getKey() === null;
     }
@@ -90,8 +102,8 @@ class EditResource extends ResourceModal implements CustomActions
         try {
             $this->authorize('create', $this->resource::class);
             $this->modal(EditResourceBuilder::make($this->resource::class));
-        } catch (AuthorizationException $e) {
-            $this->modal(RequireMembership::make()->setMessage($e->getMessage()));
+        } catch (AuthorizationException) {
+            $this->modal(RequireMembership::make());
         }
     }
 }

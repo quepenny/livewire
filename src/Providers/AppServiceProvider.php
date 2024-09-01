@@ -10,6 +10,7 @@ use Livewire\Livewire;
 use Quepenny\Livewire\Cookies;
 use Quepenny\Livewire\Enquiry;
 use Quepenny\Livewire\Modal\DeleteAccount;
+use Quepenny\Livewire\Modal\EditResource;
 use Quepenny\Livewire\Modal\LogoutOtherSessions;
 use Quepenny\Livewire\Modal\RequireMembership;
 use Quepenny\Livewire\Privacy;
@@ -88,6 +89,7 @@ class AppServiceProvider extends ServiceProvider
         Livewire::component('quepenny::livewire.contact', Enquiry::class);
         Livewire::component('quepenny::livewire.privacy', Privacy::class);
         Livewire::component('quepenny::livewire.terms', Terms::class);
+        Livewire::component('quepenny::livewire.modal.edit-resource', EditResource::class);
         Livewire::component('quepenny::livewire.modal.logout-other-sessions', LogoutOtherSessions::class);
         Livewire::component('quepenny::livewire.modal.delete-account', DeleteAccount::class);
         Livewire::component('quepenny::livewire.modal.require-membership', RequireMembership::class);
