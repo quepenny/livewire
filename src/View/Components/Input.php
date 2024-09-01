@@ -23,21 +23,26 @@ class Input extends BaseComponent
         public ?string $label = null,
         public array|Collection $options = [],
         public string $type = 'text',
-        public string $errorFor = ''
+        public string $errorFor = '',
+        public bool $showLabel = true,
+        public string $placeholder = '',
+        public bool $live = false,
+        public bool $blur = false,
+        public bool $slim = false,
+        public bool $isDisabled = false,
     ) {
     }
 
     public function getCssClassesProperty(): string
     {
         return '
-            bg-gray-50
             border
-            border-gray-300
+            border-gray-200
             text-gray-900
             text-sm
             rounded-lg
-            focus:ring-teal-500
-            focus:border-teal-500
+            focus:ring-blue-500
+            focus:border-blue-500
             p-2.5
             dark:bg-gray-600
             dark:border-gray-500
@@ -49,9 +54,9 @@ class Input extends BaseComponent
     public function getInputClassesProperty(): string
     {
         return $this->cssClasses.match ($this->type) {
-            'checkbox' => 'ml-2 w-6 h-6',
-            default => 'w-full',
-        };
+                'checkbox' => 'ml-2 w-6 h-6',
+                default => 'w-full',
+            };
     }
 
     public function render(): View
