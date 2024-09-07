@@ -19,11 +19,8 @@ class EditResourceBuilder extends BaseModalBuilder implements Arrayable
 
     public array $resourceAttributes = [];
 
-    public function __construct(
-        string $model,
-        int $id = 0,
-        string $title = ''
-    ) {
+    public function __construct(string $model, int $id = 0, string $title = '')
+    {
         $this->resourceClass = $model;
         $this->resourceAttributes['id'] = $id;
 

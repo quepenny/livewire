@@ -7,13 +7,13 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Computed;
-use Quepenny\Livewire\Http\Requests\BaseFormRequest;
+use Livewire\Form;
 use Quepenny\Livewire\Modal\Builders\EditResourceBuilder;
 use Quepenny\Livewire\Modal\Contracts\CustomActions;
 
 /**
  * @property-read bool $isCreation
- * @property-read BaseFormRequest $resourceRequest
+ * @property-read Form $resourceForm
  */
 class EditResource extends ResourceModal implements CustomActions
 {
@@ -21,15 +21,19 @@ class EditResource extends ResourceModal implements CustomActions
 
     public ?string $transSlug = 'quepenny::modal.edit-resource';
 
+    public Form $form;
+
+    public function mount(string $model, array $attributes = [], array $meta = []): void
+    {
+        parent::mount($model, $attributes, $meta);
+
+        // Set the form property to the form specifically for editing this resource.
+        $this->form = $this->resourceForm;
+    }
+
     public static function slug(): string
     {
         return 'quepenny::livewire.modal.edit-resource';
-    }
-
-    #[Computed]
-    public function resourceRequest(): BaseFormRequest
-    {
-        return BaseFormRequest::requestFor($this->resource::class);
     }
 
     #[Computed]
@@ -65,6 +69,15 @@ class EditResource extends ResourceModal implements CustomActions
         );
     }
 
+    #[Computed]
+    public function resourceForm(): Form
+    {
+        $modelClass = class_basename($this->resource);
+        $formClass = "\\App\\Livewire\\Forms\\Edit{$modelClass}Form";
+
+        return new $formClass($this, 'form');
+    }
+
     public function refreshBrowserOnConfirm(bool $value = true): static
     {
         return $this->withMeta(['refreshBrowserOnConfirm' => $value]);
@@ -72,20 +85,20 @@ class EditResource extends ResourceModal implements CustomActions
 
     public function execute(): void
     {
-        $this->validateRequest($this->resourceRequest, $this->resource);
-        $this->resource->save();
+        $this->form->validate();
+        $this->resource->fill($this->form->all())->save();
         $this->success(__('quepenny::resources.saved', ['resource' => $this->resourceName]));
     }
 
     public function rules(): array
     {
-        return $this->resourceRequest->rules($this->resource);
+        return $this->resourceForm->getRules();
     }
 
     #[Computed]
     public function isCreation(): bool
     {
-        return $this->resource->getKey() === null;
+        return !$this->resource->getKey();
     }
 
     public function registerCustomActions(): void
