@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Dto;
+namespace Quepenny\Livewire\Dto;
 
 interface DtoInterface
 {
