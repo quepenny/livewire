@@ -12,7 +12,7 @@ abstract class BaseModalBuilder implements Arrayable
     use Makeable;
     use Metable;
 
-    final public static function slug(): string
+    public static function slug(): string
     {
         return once(fn () => 'quepenny::livewire.modal.'.Str::snake(
             str_replace('Builder', '', class_basename(static::class)),
