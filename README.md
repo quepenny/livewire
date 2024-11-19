@@ -56,8 +56,7 @@ This creates a folder on the docker image for quepenny/livewire.
 
 Then run the following:
 ```
-sail stop && sail build --no-cache
-sail up -d && sail shell
+sail stop && sail build --no-cache && sail up -d && sail shell
 rm /var/www/html/vendor/quepenny/livewire && ln -s /var/www/quepenny/livewire /var/www/html/vendor/quepenny/livewire
 exit
 sail stop && sail up -d
