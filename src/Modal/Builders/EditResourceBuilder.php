@@ -4,6 +4,7 @@ namespace Quepenny\Livewire\Modal\Builders;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Str;
+use Livewire\Attributes\Computed;
 use Quepenny\Livewire\Traits\ComputesProps;
 use Quepenny\Livewire\Traits\Metable;
 
@@ -19,7 +20,7 @@ class EditResourceBuilder extends BaseModalBuilder implements Arrayable
 
     public array $resourceAttributes = [];
 
-    public function __construct(string $model, int $id = 0, string $title = '')
+    public function __construct(string $model, int|string $id = 0, string $title = '')
     {
         $this->resourceClass = $model;
         $this->resourceAttributes['id'] = $id;
@@ -57,7 +58,8 @@ class EditResourceBuilder extends BaseModalBuilder implements Arrayable
         return $this->withMeta(['bodyKey' => $key]);
     }
 
-    public function getIsCreationProperty(): bool
+    #[Computed]
+    public function isCreation(): bool
     {
         return ! $this->resourceAttributes['id'];
     }

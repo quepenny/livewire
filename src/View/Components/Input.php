@@ -4,6 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
+use Livewire\Attributes\Computed;
 use Quepenny\Livewire\View\Components\BaseComponent;
 
 /**
@@ -30,10 +31,10 @@ class Input extends BaseComponent
         public bool $blur = false,
         public bool $slim = false,
         public bool $isDisabled = false,
-    ) {
-    }
+    ) {}
 
-    public function getCssClassesProperty(): string
+    #[Computed]
+    public function cssClasses(): string
     {
         return '
             border
@@ -51,12 +52,13 @@ class Input extends BaseComponent
         ';
     }
 
-    public function getInputClassesProperty(): string
+    #[Computed]
+    public function inputClasses(): string
     {
-        return $this->cssClasses.match ($this->type) {
-                'checkbox' => 'ml-2 w-6 h-6',
-                default => 'w-full',
-            };
+        return $this->cssClasses . match ($this->type) {
+            'checkbox' => 'ml-2 w-6 h-6',
+            default => 'w-full',
+        };
     }
 
     public function render(): View

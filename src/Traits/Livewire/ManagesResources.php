@@ -8,6 +8,7 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Laravel\Scout;
+use Livewire\Attributes\Computed;
 use Livewire\WithPagination;
 use Quepenny\Livewire\Modal\Builders\DeleteResourceBuilder;
 use Quepenny\Livewire\Modal\Builders\EditResourceBuilder;
@@ -41,7 +42,8 @@ trait ManagesResources
         $this->resetPage();
     }
 
-    public function getResourcesProperty(): LengthAwarePaginator
+    #[Computed]
+    public function resources(): LengthAwarePaginator
     {
         return $this->fullQuery()->paginate($this->resourcesPerPage);
     }
