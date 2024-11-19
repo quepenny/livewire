@@ -19,4 +19,14 @@ abstract class BaseModalBuilder implements Arrayable
             '-'
         ));
     }
+
+    public static function modalClass(): string
+    {
+        $modalBasename = Str::of(static::class)
+            ->classBasename()
+            ->replace('Builder', '');
+
+        return Str::of(static::class)
+            ->replace('Builders\\' . class_basename(static::class), $modalBasename);
+    }
 }
