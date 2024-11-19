@@ -18,7 +18,7 @@ abstract class ResourceModal extends BaseModalComponent
 
     public ?Model $resource = null;
 
-    public int $resourceId;
+    public int|string $resourceId;
 
     public string $resourceTitle;
 
@@ -31,25 +31,6 @@ abstract class ResourceModal extends BaseModalComponent
         $this->withMeta($meta);
         $this->setResource($model, $attributes);
         $this->setResourceTitle();
-    }
-
-    protected function setResource(string $model, array $attributes): void
-    {
-        if ($this->meta('lazyLoadResource') || ! $this->resourceId) {
-            $this->resource = new $model($attributes);
-        } else {
-            $this->resource = $model::find($this->resourceId);
-        }
-    }
-
-    protected function setResourceTitle(): void
-    {
-        $this->resourceTitle = $this->meta('title') ?? '';
-
-        if (! $this->resourceTitle && $this->resourceId) {
-            $titleAttribute = $this->meta('titleAttribute');
-            $this->resourceTitle = $this->resource->{$titleAttribute};
-        }
     }
 
     public function setBody(string $key): static
@@ -80,4 +61,23 @@ abstract class ResourceModal extends BaseModalComponent
     }
 
     abstract protected function execute(): void;
+
+    protected function setResource(string $model, array $attributes): void
+    {
+        if ($this->meta('lazyLoadResource') || ! $this->resourceId) {
+            $this->resource = new $model($attributes);
+        } else {
+            $this->resource = $model::find($this->resourceId);
+        }
+    }
+
+    protected function setResourceTitle(): void
+    {
+        $this->resourceTitle = $this->meta('title') ?? '';
+
+        if (! $this->resourceTitle && $this->resourceId) {
+            $titleAttribute = $this->meta('titleAttribute');
+            $this->resourceTitle = $this->resource->{$titleAttribute};
+        }
+    }
 }
