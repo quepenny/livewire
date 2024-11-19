@@ -27,8 +27,9 @@ class EditResource extends ResourceModal implements CustomActions
     {
         parent::mount($model, $attributes, $meta);
 
-        // Set the form property to the form specifically for editing this resource.
+        // Initialize resource form
         $this->form = $this->resourceForm;
+        $this->form->fill($attributes);
     }
 
     public static function slug(): string
@@ -88,11 +89,6 @@ class EditResource extends ResourceModal implements CustomActions
         $this->form->validate();
         $this->resource->fill($this->form->all())->save();
         $this->success(__('quepenny::resources.saved', ['resource' => $this->resourceName]));
-    }
-
-    public function rules(): array
-    {
-        return $this->resourceForm->getRules();
     }
 
     #[Computed]
