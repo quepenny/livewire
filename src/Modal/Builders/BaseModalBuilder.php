@@ -14,10 +14,10 @@ abstract class BaseModalBuilder implements Arrayable
 
     public static function slug(): string
     {
-        return once(fn () => 'quepenny::livewire.modal.'.Str::snake(
-            str_replace('Builder', '', class_basename(static::class)),
-            '-'
-        ));
+        return Str::of(class_basename(static::class))
+            ->replace('Builder', '')
+            ->kebab()
+            ->prepend('quepenny::livewire.modal.');
     }
 
     public static function modalClass(): string
