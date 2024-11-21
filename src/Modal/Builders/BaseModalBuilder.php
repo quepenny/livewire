@@ -29,4 +29,13 @@ abstract class BaseModalBuilder implements Arrayable
         return Str::of(static::class)
             ->replace('Builders\\' . class_basename(static::class), $modalBasename);
     }
+
+    public function when(mixed $condition, callable $callback): static
+    {
+        if ($condition) {
+            $callback($this);
+        }
+
+        return $this;
+    }
 }
