@@ -27,7 +27,7 @@ trait ManagesResources
 
     protected int $resourcesPerPage = 15;
 
-    protected bool $paginationEnabled = true;
+    protected bool $paginateResources = true;
 
     abstract public function resourcesQuery(): Builder;
 
@@ -47,16 +47,9 @@ trait ManagesResources
     #[Computed]
     public function resources(): LengthAwarePaginator|Eloquent\Collection
     {
-        return $this->paginationEnabled
+        return $this->paginateResources
             ? $this->fullQuery()->paginate($this->resourcesPerPage)
             : $this->fullQuery()->get();
-    }
-
-    protected function fullQuery(): Builder|Scout\Builder
-    {
-        return $this->search
-            ? $this->resourcesQuery()->search($this->search)
-            : $this->resourcesQuery();
     }
 
     public function create(): void
@@ -87,5 +80,17 @@ trait ManagesResources
     public function resourceClass(): string
     {
         return $this->resource()::class;
+    }
+
+    protected function fullQuery(): Builder|Scout\Builder
+    {
+        return $this->search
+            ? $this->resourcesQuery()->search($this->search)
+            : $this->resourcesQuery();
+    }
+
+    protected function disableResourcePagination(): void
+    {
+        $this->paginateResources = false;
     }
 }
