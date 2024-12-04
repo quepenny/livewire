@@ -17,24 +17,28 @@ class GuestToken
         }
 
         if (Auth::guest()) {
-            $token = $request->cookie($this->tokenName());
+            $token = $request->cookie(config('quepenny.guest_token_name'));
+
+            if (! $token) {
+                // For development purposes, set a default guest-token to
+                // avoid creating a new guest record on every request.
+                $token = config('app.env') === 'production'
+                    ? null
+                    : config('quepenny.guest_token_default');
+            }
 
             Session::put(
                 'guest',
-                $token ? Guest::firstOrCreate(['token' => $token]) : Guest::create()
+                $token
+                    ? Guest::query()->firstOrCreate(['token' => $token])
+                    : Guest::query()->create()
             );
         }
 
         $response = $next($request);
 
-        return Auth::guest() ? $response->withCookie(
-            $this->tokenName(),
-            user()?->token ?? $request->cookie($this->tokenName())
-        ) : $response;
-    }
-
-    public static function tokenName(): string
-    {
-        return strtolower(config('app.name')).'-guest-token';
+        return Auth::guest()
+            ? $response->withCookie(config('quepenny.guest_token_name'), guest()?->token)
+            : $response;
     }
 }
