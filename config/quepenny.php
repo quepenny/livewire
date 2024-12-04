@@ -44,4 +44,5 @@ return [
     */
 
     'guest_token_default' => env('GUEST_TOKEN_DEFAULT', '01jczhzrhxv3ag8fph2mzcsy4p'),
+
 ];
