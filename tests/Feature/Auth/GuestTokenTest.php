@@ -6,8 +6,6 @@ use App\Models\Guest;
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\TestCase;
-use Illuminate\Support\Facades\Cookie;
-use Quepenny\Livewire\Http\Middleware\GuestToken;
 
 class GuestTokenTest extends TestCase
 {
