@@ -7,6 +7,7 @@ use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Str;
 use Laravel\Scout;
 use Livewire\Attributes\Computed;
 use Livewire\WithPagination;
@@ -16,6 +17,7 @@ use Quepenny\Livewire\Modal\RequireMembership;
 
 /**
  * @property-read LengthAwarePaginator $resources
+ * @property-read string $resourceTitle
  */
 trait ManagesResources
 {
@@ -80,6 +82,22 @@ trait ManagesResources
     public function resourceClass(): string
     {
         return $this->resource()::class;
+    }
+
+    #[Computed]
+    public function resourceTitle(): string
+    {
+        return Str::of($this->resourceClass())
+            ->classBasename()
+            ->headline();
+    }
+
+    public function resourceText(string $key): string
+    {
+        return __(
+            "quepenny::resources.{$key}",
+            [ 'resource' => $this->resourceTitle ]
+        );
     }
 
     protected function fullQuery(): Builder|Scout\Builder
