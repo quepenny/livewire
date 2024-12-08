@@ -2,11 +2,21 @@
 
 namespace Quepenny\Livewire\Modal;
 
+use Livewire\Attributes\Computed;
+
 class DeleteResource extends ResourceModal
 {
     public bool $destructiveAction = true;
 
-    public function getTitleProperty(): string
+    public ?string $transSlug = 'quepenny::modal.delete-resource';
+
+    public static function slug(): string
+    {
+        return 'quepenny::livewire.modal.delete-resource';
+    }
+
+    #[Computed]
+    public function title(): string
     {
         return $this->trans('title', [
             'resourceName' => $this->resourceName,
@@ -14,7 +24,8 @@ class DeleteResource extends ResourceModal
         ]);
     }
 
-    public function getSubtitleProperty(): string
+    #[Computed]
+    public function subtitle(): string
     {
         return $this->trans('subtitle', [
             'resourceTitle' => $this->meta('title'),
@@ -25,7 +36,7 @@ class DeleteResource extends ResourceModal
     {
         $this->resource::destroy($this->resourceId);
 
-        $this->warning(__('resources.deleted', [
+        $this->success(__('quepenny::resources.deleted', [
             'resource' => $this->resourceName,
         ]));
     }
