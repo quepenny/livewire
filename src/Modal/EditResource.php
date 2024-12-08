@@ -29,7 +29,7 @@ class EditResource extends ResourceModal implements CustomActions
 
         // Initialize resource form
         $this->form = $this->resourceForm;
-        $this->form->fill($attributes);
+        $this->form->fill($this->resource->toArray());
     }
 
     public static function slug(): string
