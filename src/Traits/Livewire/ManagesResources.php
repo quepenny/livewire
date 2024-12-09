@@ -64,7 +64,7 @@ trait ManagesResources
         }
     }
 
-    public function edit(int $id, string $name = ''): void
+    public function edit(int|string $id, string $name = ''): void
     {
         $this->authorize('view', $this->resourceClass());
 
@@ -74,7 +74,7 @@ trait ManagesResources
         );
     }
 
-    public function delete(int $id, string $name): void
+    public function delete(int|string $id, string $name): void
     {
         $this->modal(DeleteResourceBuilder::make($this->resourceClass(), $id, $name));
     }
