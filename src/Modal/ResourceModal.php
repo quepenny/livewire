@@ -50,6 +50,8 @@ abstract class ResourceModal extends BaseModalComponent
 
         if ($this->meta('refreshBrowserOnConfirm')) {
             $this->redirect(URL::previous());
+        } else if ($this->meta('redirectOnConfirm')) {
+            $this->redirect($this->meta('redirectOnConfirm'));
         } else {
             $this->forceClose()->closeModalWithEvents(['$refresh']);
         }

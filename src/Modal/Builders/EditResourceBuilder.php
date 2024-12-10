@@ -53,6 +53,11 @@ class EditResourceBuilder extends BaseModalBuilder implements Arrayable
         return $this->withMeta(['refreshBrowserOnConfirm' => $value]);
     }
 
+    public function redirectOnConfirm(string $url): static
+    {
+        return $this->withMeta(['redirectOnConfirm' => $url]);
+    }
+
     public function setBody(string $key): static
     {
         return $this->withMeta(['bodyKey' => $key]);
