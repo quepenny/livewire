@@ -15,6 +15,8 @@ class RequireMembership extends BaseModalComponent implements CustomActions, Arr
 
     public bool $reloadOnClose = false;
 
+    public ?string $transSlug = 'quepenny::modal.require-membership';
+
     public static function slug(): string
     {
         return 'quepenny::livewire.modal.require-membership';

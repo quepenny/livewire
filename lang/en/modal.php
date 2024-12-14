@@ -29,8 +29,8 @@ return [
         'confirm' => 'Log Out Other Browser Sessions',
     ],
     'require-membership' => [
-        'title' => 'Shop With Us!',
-        'body' => 'Become a member and access all our features on multiple devices!',
+        'title' => 'Become a Member!',
+        'body' => 'Access all our features on multiple devices!',
         'confirm' => 'Sign Up',
         'login' => 'Log In',
     ],
