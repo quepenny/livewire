@@ -19,6 +19,8 @@ class EditResource extends ResourceModal implements CustomActions
 {
     use AuthorizesRequests;
 
+    protected bool $canSaveAndCreateAnother = true;
+
     public ?string $transSlug = 'quepenny::modal.edit-resource';
 
     public Form $form;
@@ -99,14 +101,18 @@ class EditResource extends ResourceModal implements CustomActions
     #[Computed]
     public function isCreation(): bool
     {
-        return !$this->resource->getKey();
+        // If an ID is originally present in the resource, it's an edit action.
+        return !$this->resource->getOriginal($this->resource->getKeyName());
     }
 
     public function registerCustomActions(): void
     {
-        $this->isCreation && $this->setCustomAction('save-and-create-another', function () {
-            $this->saveAndCreateAnother();
-        });
+        if ($this->canSaveAndCreateAnother && $this->isCreation) {
+            $this->setCustomAction(
+                'save-and-create-another',
+                fn () => $this->saveAndCreateAnother()
+            );
+        }
     }
 
     public function saveAndCreateAnother(): void

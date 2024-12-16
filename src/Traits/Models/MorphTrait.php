@@ -2,6 +2,7 @@
 
 namespace Quepenny\Livewire\Traits\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
@@ -23,8 +24,11 @@ trait MorphTrait
         )->where("{$morphName}_type", $this->morph_type);
     }
 
-    public function getMorphTypeAttribute(): string
+    public function morphType(): Attribute
     {
-        return array_search(static::class, Relation::morphMap()) ?: static::class;
+        return new Attribute(
+            fn (): string => array_search(static::class, Relation::morphMap())
+                ?: static::class
+        );
     }
 }

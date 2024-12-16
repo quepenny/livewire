@@ -50,7 +50,6 @@ class AppServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../../lang/en/empty.php' => lang_path('en/empty.php'),
-            __DIR__.'/../../lang/en/modals.php' => lang_path('en/modals.php'),
             __DIR__.'/../../lang/en/legal.php' => lang_path('en/legal.php'),
         ], ['quepenny', 'lang']);
 
