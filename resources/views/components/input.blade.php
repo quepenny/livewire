@@ -1,27 +1,40 @@
 <div
-    class="mb-3 {{ $attributes->get('class') }}"
+    @class([
+        $attributes->get('class'),
+        'mb-3' => !$slim
+    ])
     {{ $attributes->except($inputAttrs) }}
 >
-    <label class="text-gray-700 text-sm font-bold" for="username">
-        {{ $label ?? __(ucfirst($field)) }}
-    </label>
-    
+    @if($showLabel)
+        <label
+            class="text-gray-700 text-sm font-bold"
+            for="username"
+        >
+            {{ $label ?? __(ucfirst($field)) }}
+
+            @if($required)
+                <span class="text-red-600">*</span>
+            @endif
+        </label>
+    @endif
+
     <div
         @class([
-            'mt-2',
+            'mt-2' => !$slim,
             'inline-block' => $type === 'checkbox'
         ])
     >
         @switch($type)
             @case('select')
                 <select
-                    wire:model="{{ $field }}"
+                    wire:model{{ $live ? '.live' : '' }}{{ $blur ? '.blur' : '' }}="{{ $field }}"
                     name="{{ $field }}"
                     {{ $attributes->only($inputAttrs) }}
-                    class="{{ $prop('inputClasses') }}"
+                    class="{{ $inputClasses }}"
+                    @if($isDisabled) disabled="disabled" @endif
                 >
-                    <option value="">{{ __('Select') }}</option>
-                
+                    <option value="">{{ $placeholder ?? __('Select') }}</option>
+
                     @foreach($options as $option)
                         <option value="{{ $option['value'] }}">
                             {{ $option['label'] }}
@@ -29,33 +42,39 @@
                     @endforeach
                 </select>
                 @break
-        
+
             @case('textarea')
                 <textarea
-                    wire:model="{{ $field }}"
+                    wire:model{{ $live ? '.live' : '' }}{{ $blur ? '.blur' : '' }}="{{ $field }}"
                     name="{{ $field }}"
                     {{ $attributes->only($inputAttrs) }}
-                    @class([$prop('inputClasses'), 'h-24'])
+                    placeholder="{{ $placeholder ?? '' }}"
+                    @class([$inputClasses, 'h-24'])
+                    @if($isDisabled) disabled="disabled" @endif
                 ></textarea>
                 @break
-        
+
             @case('custom')
                 {{ $slot }}
                 @break
-        
+
             @default
                 <input
-                    wire:model="{{ $field }}"
+                    wire:model{{ $live ? '.live' : '' }}{{ $blur ? '.blur' : '' }}="{{ $field }}"
                     name="{{ $field }}"
                     type="{{ $type }}"
-                    class="{{ $prop('inputClasses') }}"
+                    class="{{ $inputClasses }}"
+                    placeholder="{{ $placeholder ?? '' }}"
                     {{ $attributes->only($inputAttrs) }}
+                    @if($isDisabled) disabled="disabled" @endif
                 />
                 @break
         @endswitch
     </div>
-    
+
     @error($errorFor ?: $field)
         <span class="block text-red-500">{{ $message }}</span>
+    @elseif($help)
+        <span class="block text-gray-500 text-sm">{!! $help !!}</span>
     @enderror
 </div>

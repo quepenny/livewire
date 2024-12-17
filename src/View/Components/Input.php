@@ -32,6 +32,7 @@ class Input extends BaseComponent
         public bool $slim = false,
         public bool $isDisabled = false,
         public string $help = '',
+        public bool $required = false,
     ) {}
 
     #[Computed]
