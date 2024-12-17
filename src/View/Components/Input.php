@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Form;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
@@ -31,6 +31,7 @@ class Input extends BaseComponent
         public bool $blur = false,
         public bool $slim = false,
         public bool $isDisabled = false,
+        public string $help = '',
     ) {}
 
     #[Computed]
@@ -56,9 +57,9 @@ class Input extends BaseComponent
     public function inputClasses(): string
     {
         return $this->cssClasses . match ($this->type) {
-            'checkbox' => 'ml-2 w-6 h-6',
-            default => 'w-full',
-        };
+                'checkbox' => 'ml-2 w-6 h-6',
+                default => 'w-full',
+            };
     }
 
     public function render(): View
