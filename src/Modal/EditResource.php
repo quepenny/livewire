@@ -33,7 +33,7 @@ class EditResource extends ResourceModal implements CustomActions
         // Initialize resource form
         $this->form = $this->resourceForm;
         $this->form->fill($this->resource->toArray());
-        $this->isCreation = ! $this->resource->exists();
+        $this->isCreation = ! $this->resource->getKey();
     }
 
     public static function slug(): string
