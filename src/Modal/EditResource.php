@@ -97,7 +97,7 @@ class EditResource extends ResourceModal implements CustomActions
             ->fill($this->form->all())
             ->save();
 
-        $this->success(__('quepenny::resources.saved', ['resource' => $this->resourceName]));
+        $this->success(__('quepenny::resources.resource_saved', ['resource' => $this->resourceName]));
     }
 
     public function registerCustomActions(): void
