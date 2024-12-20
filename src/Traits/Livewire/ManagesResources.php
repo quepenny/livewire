@@ -2,7 +2,6 @@
 
 namespace Quepenny\Livewire\Traits\Livewire;
 
-use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent;
@@ -13,7 +12,6 @@ use Livewire\Attributes\Computed;
 use Livewire\WithPagination;
 use Quepenny\Livewire\Modal\Builders\DeleteResourceBuilder;
 use Quepenny\Livewire\Modal\Builders\EditResourceBuilder;
-use Quepenny\Livewire\Modal\RequireMembership;
 
 /**
  * @property-read LengthAwarePaginator $resources
@@ -56,18 +54,11 @@ trait ManagesResources
 
     public function create(): void
     {
-        try {
-            $this->authorize('create', $this->resourceClass());
-            $this->modal(EditResourceBuilder::make($this->resourceClass()));
-        } catch (AuthorizationException) {
-            $this->modal(new RequireMembership);
-        }
+        $this->modal(EditResourceBuilder::make($this->resourceClass()));
     }
 
     public function edit(int|string $id, string $name = ''): void
     {
-        $this->authorize('view', $this->resourceClass());
-
         $this->modal(
             EditResourceBuilder::make($this->resourceClass(), $id)
                 ->setResourceAttributes(['name' => $name])
