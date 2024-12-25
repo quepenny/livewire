@@ -6,5 +6,5 @@ return [
     'delete_resource' => 'Delete :resource',
     'resource_saved' => ':resource Saved',
     'resource_deleted' => ':resource Deleted',
-    'updated' => 'Updated',
+    'updated' => 'Updated: :timestamp',
 ];
