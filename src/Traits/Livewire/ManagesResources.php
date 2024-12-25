@@ -78,9 +78,11 @@ trait ManagesResources
     #[Computed]
     public function resourceTitle(): string
     {
-        return Str::of($this->resourceClass())
+        $resourceKey = Str::of($this->resourceClass())
             ->classBasename()
-            ->headline();
+            ->snake();
+
+        return __("resources.{$resourceKey}.title");
     }
 
     public function resourceText(string $key): string
