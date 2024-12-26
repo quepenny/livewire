@@ -8,6 +8,7 @@ use Livewire\Attributes\Computed;
 use LivewireUI\Modal\ModalComponent;
 use Quepenny\Livewire\Modal\Contracts\CustomActions;
 use Quepenny\Livewire\Traits\Livewire\Toastable;
+use function Laravel\Prompts\confirm;
 
 /**
  * docs: https://github.com/wire-elements/modal
@@ -15,6 +16,7 @@ use Quepenny\Livewire\Traits\Livewire\Toastable;
  * @property-read string $title
  * @property-read string $subtitle
  * @property-read string $confirmText
+ * @property-read ?string $confirmLoadingText
  * @property-read string $cancelText
  * @property-read View|string $body
  */
@@ -67,6 +69,12 @@ abstract class BaseModalComponent extends ModalComponent
     public function confirmText(): string
     {
         return $this->trans('confirm') ?? 'Okay';
+    }
+
+    #[Computed]
+    public function confirmLoadingText(): ?string
+    {
+        return $this->trans('confirm_loading');
     }
 
     #[Computed]
