@@ -91,6 +91,11 @@ abstract class BaseModalComponent extends ModalComponent
         return $this;
     }
 
+    public function close(): void
+    {
+        $this->forceClose()->closeModal();
+    }
+
     public function confirm(): void
     {
         $this->closeModal();
