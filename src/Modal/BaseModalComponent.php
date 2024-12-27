@@ -4,6 +4,7 @@ namespace Quepenny\Livewire\Modal;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
+use InvalidArgumentException;
 use Livewire\Attributes\Computed;
 use LivewireUI\Modal\ModalComponent;
 use Quepenny\Livewire\Modal\Contracts\CustomActions;
@@ -102,6 +103,10 @@ abstract class BaseModalComponent extends ModalComponent
 
     public function executeAction(string $action): void
     {
+        if (empty($this->customActions[$action])) {
+            throw new InvalidArgumentException("Action [$action] is not registered.");
+        }
+
         $this->customActions[$action]['callback']();
     }
 
