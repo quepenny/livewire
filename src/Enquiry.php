@@ -25,7 +25,7 @@ class Enquiry extends PageComponent
     public function render(): View
     {
         return view('livewire.enquiry')->layoutData([
-            'title' => __('pages.contact.title') ?: 'Contact ',
+            'title' => __('pages.contact.title') ?: 'Contact',
             'nav' => ['active' => 'contact'],
             'mainTitle' => __('quepenny::enquiry.title'),
             'subTitle' => __('quepenny::enquiry.subtitle'),

@@ -1,7 +1,19 @@
 <?php
 
 return [
-    'privacy' => 'legal.en.privacy',
-    'terms' => 'legal.en.terms',
-    'cookies' => 'legal.en.cookies',
+    'privacy' => [
+        'title' => 'Privacy Policy',
+        'subtitle' => 'Last Updated: :date',
+        'view' => 'legal.en.privacy',
+    ],
+    'terms' => [
+        'title' => 'Terms of Service',
+        'subtitle' => 'Last Updated: :date',
+        'view' => 'legal.en.terms',
+    ],
+    'cookies' => [
+        'title' => 'Cookie Policy',
+        'subtitle' => 'Last Updated: :date',
+        'view' => 'legal.en.cookies',
+    ],
 ];
