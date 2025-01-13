@@ -18,7 +18,7 @@
                     type="button"
                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
                     data-modal-toggle="defaultModal"
-                    wire:click="cancel"
+                    wire:click="close"
                 >
                     <x-bs-icon name="x" />
                 </button>

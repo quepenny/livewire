@@ -4,10 +4,12 @@ namespace Quepenny\Livewire\Modal;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
+use InvalidArgumentException;
 use Livewire\Attributes\Computed;
 use LivewireUI\Modal\ModalComponent;
 use Quepenny\Livewire\Modal\Contracts\CustomActions;
 use Quepenny\Livewire\Traits\Livewire\Toastable;
+use function Laravel\Prompts\confirm;
 
 /**
  * docs: https://github.com/wire-elements/modal
@@ -15,6 +17,7 @@ use Quepenny\Livewire\Traits\Livewire\Toastable;
  * @property-read string $title
  * @property-read string $subtitle
  * @property-read string $confirmText
+ * @property-read ?string $confirmLoadingText
  * @property-read string $cancelText
  * @property-read View|string $body
  */
@@ -70,6 +73,12 @@ abstract class BaseModalComponent extends ModalComponent
     }
 
     #[Computed]
+    public function confirmLoadingText(): ?string
+    {
+        return $this->trans('confirm_loading');
+    }
+
+    #[Computed]
     public function cancelText(): string
     {
         return $this->trans('cancel') ?? 'Cancel';
@@ -80,6 +89,11 @@ abstract class BaseModalComponent extends ModalComponent
         $this->transSlug = $slug;
 
         return $this;
+    }
+
+    public function close(): void
+    {
+        $this->forceClose()->closeModal();
     }
 
     public function confirm(): void
@@ -94,6 +108,10 @@ abstract class BaseModalComponent extends ModalComponent
 
     public function executeAction(string $action): void
     {
+        if (empty($this->customActions[$action])) {
+            throw new InvalidArgumentException("Action [$action] is not registered.");
+        }
+
         $this->customActions[$action]['callback']();
     }
 

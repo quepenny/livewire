@@ -12,7 +12,6 @@ use Quepenny\Livewire\Modal\Builders\EditResourceBuilder;
 use Quepenny\Livewire\Modal\Contracts\CustomActions;
 
 /**
- * @property-read bool $isCreation
  * @property-read Form $resourceForm
  */
 class EditResource extends ResourceModal implements CustomActions
@@ -21,9 +20,11 @@ class EditResource extends ResourceModal implements CustomActions
 
     protected bool $canSaveAndCreateAnother = true;
 
-    public ?string $transSlug = 'quepenny::modal.edit-resource';
-
     public Form $form;
+
+    public bool $isCreation;
+
+    public ?string $transSlug = 'quepenny::modal.edit-resource';
 
     public function mount(string $model, array $attributes = [], array $meta = []): void
     {
@@ -32,6 +33,7 @@ class EditResource extends ResourceModal implements CustomActions
         // Initialize resource form
         $this->form = $this->resourceForm;
         $this->form->fill($this->resource->toArray());
+        $this->isCreation = ! $this->resource->getKey();
     }
 
     public static function slug(): string
@@ -95,14 +97,7 @@ class EditResource extends ResourceModal implements CustomActions
             ->fill($this->form->all())
             ->save();
 
-        $this->success(__('quepenny::resources.saved', ['resource' => $this->resourceName]));
-    }
-
-    #[Computed]
-    public function isCreation(): bool
-    {
-        // If an ID is originally present in the resource, it's an edit action.
-        return !$this->resource->getOriginal($this->resource->getKeyName());
+        $this->success(__('quepenny::resources.resource_saved', ['resource' => $this->resourceName]));
     }
 
     public function registerCustomActions(): void

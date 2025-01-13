@@ -36,7 +36,7 @@ class DeleteResource extends ResourceModal
     {
         $this->resource::destroy($this->resourceId);
 
-        $this->success(__('quepenny::resources.deleted', [
+        $this->success(__('quepenny::resources.resource_deleted', [
             'resource' => $this->resourceName,
         ]));
     }
