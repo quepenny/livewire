@@ -25,7 +25,7 @@ class SocialLoginController extends Controller
 
         $socialite = Socialite::driver($request->route('driver'))->user();
 
-        $user = User::firstOrCreate([
+        $user = User::query()->firstOrCreate([
             'email' => $socialite->email,
         ], [
             'name' => $socialite->name,
