@@ -26,9 +26,10 @@ Route::get('privacy', Privacy::class)->name('privacy');
 Route::get('cookies', Cookies::class)->name('cookies');
 Route::get('email/verified', fn () => view('auth.email-verified'))->name('email.verified');
 
-Route::post('deploy', DeployController::class);
-
-Route::middleware(['auth:sanctum'])->group(function () {
+Route::middleware([
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
     Route::get('settings', Settings::class)->name('settings');
 });
 
