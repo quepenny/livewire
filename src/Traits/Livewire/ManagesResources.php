@@ -87,10 +87,7 @@ trait ManagesResources
 
     public function resourceText(string $key, ?array $params = []): string
     {
-        return __("quepenny::resources.{$key}", [
-            'resource' => $this->resourceTitle,
-            ...$params,
-        ]);
+        return resource_label($key, $this->resourceTitle, $params);
     }
 
     protected function fullQuery(): Builder|Scout\Builder
