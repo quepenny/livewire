@@ -66,3 +66,16 @@ if (! function_exists('user')) {
         return Auth::user() ?? guest();
     }
 }
+
+if (! function_exists('resource_label')) {
+    /**
+     * Retrieve a localized resource string with the given key and resource name.
+     */
+    function resource_label(string $key, string $resource, array $params = []): string
+    {
+        return __("quepenny::resources.{$key}", [
+            'resource' => $resource,
+            ...$params,
+        ]);
+    }
+}
