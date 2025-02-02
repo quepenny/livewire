@@ -85,7 +85,7 @@ trait ManagesResources
         return __("resources.{$resourceKey}.title");
     }
 
-    public function resourceText(string $key, ?array $params = []): string
+    public function resourceLabel(string $key, ?array $params = []): string
     {
         return resource_label($key, $this->resourceTitle, $params);
     }
