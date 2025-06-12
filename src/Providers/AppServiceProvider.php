@@ -66,7 +66,6 @@ class AppServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../../.gitignore' => base_path('.gitignore'),
-            __DIR__.'/../../deploy.sh' => base_path('deploy.sh'),
             __DIR__.'/../../docker-compose.yml' => base_path('docker-compose.yml'),
             __DIR__.'/../../package.json' => base_path('package.json'),
             __DIR__.'/../../phpunit.xml' => base_path('phpunit.xml'),
