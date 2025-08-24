@@ -1,53 +1,67 @@
-<x-content>
-    <div class="container mx-auto py-8 px-4">
-        <div class="mb-4">
-            <h2 class="text-2xl font-bold font-heading">{{ __('quepenny::enquiry.title') }}</h2>
-            <p class="text-gray-500 text-sm leading-loose">{{ __('quepenny::enquiry.subtitle') }}</p>
+<main>
+    @if($submitted)
+        <div class="p-4 bg-green-100 border-l-4 border-green-500">
+            <p class="text-green-700">
+                {{ __('quepenny::enquiry.success_message') }}
+            </p>
         </div>
+    @else
+        <x-form.input
+                field="form.subject"
+                field="form.subject"
+                label="{{ __('quepenny::enquiry.labels.subject') }}"
+        />
 
-        <div class="flex flex-wrap">
-            <div class="w-full lg:w-1/2 mb-12">
-                <div class="max-w-md">
-                    <form>
-                        <x-input field="name"/>
+        <x-form.input
+                field="form.name"
+                label="{{ __('quepenny::enquiry.labels.name') }}"
+        />
 
-                        <x-input
-                            field="email"
-                            type="email"
-                        />
+        <x-form.input
+                field="form.email"
+                type="email"
+                label="{{ __('quepenny::enquiry.labels.email') }}"
+        />
 
-                        <x-input field="subject"/>
+        <x-form.input
+                field="form.message"
+                type="textarea"
+                label="{{ __('quepenny::enquiry.labels.message') }}"
+        />
 
-                        <x-input
-                            field="message"
-                            type="textarea"
-                        />
+        <p class="mb-2 text-xs">
+            {{ __('I agree to') }}
 
-                        <x-input
-                            label="{{ __('I agree to terms and conditions.') }}"
-                            field="terms"
-                            type="checkbox"
-                        />
+            <a
+                    target="_blank"
+                    href="{{ route('terms') }}"
+                    class="underline text-gray-600 hover:text-gray-900"
+            >
+                {{ __('Terms of Use') }}
+            </a>
 
-                        <div class="flex justify-between items-center">
-                            <button
-                                class="inline-block py-2 px-6 rounded-l-xl rounded-t-xl bg-teal-600 hover:bg-teal-700 text-gray-50 font-bold leading-loose transition duration-200"
-                                wire:click.prevent="submit"
-                            >
-                                {{ __('Send') }}
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="w-full lg:w-1/2 mb-16 lg:mb-0">
-                <div class="flex flex-wrap">
-                    <div class="w-full md:w-1/2">
-                        <h3 class="mb-2 text-2xl font-bold">Email Us</h3>
-                        <p class="text-gray-500 text-sm">support@quepenny.com</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</x-content>
+            and
+
+            <a
+                    target="_blank"
+                    href="{{ route('privacy') }}"
+                    class="underline text-gray-600 hover:text-gray-900"
+            >
+                {{ __('Privacy Policy') }}
+            </a>
+        </p>
+
+        <x-form.input
+                field="form.terms"
+                type="checkbox"
+                label="{{ __('quepenny::enquiry.labels.terms') }}"
+        />
+
+        <x-button
+                class="w-full justify-center font-bold text-white"
+                action="submit"
+        >
+            {{ __('quepenny::enquiry.button_text') }}
+        </x-button>
+    @endif
+</main>
