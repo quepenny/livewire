@@ -1,8 +1,8 @@
-<h2>Test Educate Cookie Policy</h2>
+<h2>{{ config('app.name') }} Cookie Policy</h2>
 <p>Effective Date: 3 December 2022</p>
-<p>We use cookies to help improve your experience of our website at <a href="https://test-ed.co.uk">https://test-ed.co.uk</a>. This cookie policy is part of Test Educate's privacy policy. It covers the use of cookies between your device and our site.</p>
+<p>We use cookies to help improve your experience of our website at <a href="{{ config('app.url') }}">{{ config('app.url') }}</a>. This cookie policy is part of {{ config('app.name') }}'s privacy policy. It covers the use of cookies between your device and our site.</p>
 <p>We also provide basic information on third-party services we may use, who may also use cookies as part of their service. This policy does not cover their cookies.</p>
-<p>If you don’t wish to accept cookies from us, you should instruct your browser to refuse cookies from <a href="https://test-ed.co.uk">https://test-ed.co.uk</a>. In such a case, we may be unable to provide you with some of your desired content and services.</p>
+<p>If you don’t wish to accept cookies from us, you should instruct your browser to refuse cookies from <a href="{{ config('app.url') }}">{{ config('app.url') }}</a>. In such a case, we may be unable to provide you with some of your desired content and services.</p>
 <h3>What is a cookie?</h3>
 <p>A cookie is a small piece of data that a website stores on your device when you visit. It typically contains information about the website itself, a unique identifier that allows the site to recognise your web browser when you return, additional data that serves the cookie’s purpose, and the lifespan of the cookie itself.</p>
 <p>Cookies are used to enable certain features (e.g. logging in), track site usage (e.g. analytics), store your user settings (e.g. time zone, notification preferences), and to personalise your content (e.g. advertising, language).</p>
@@ -16,5 +16,5 @@
 <p>Each time you use our Website, the current version of the Cookie Policy will apply. When you use our Website, you should check the date of this Cookie Policy (which appears at the top of this document) and review any changes since the last version.</p>
 <h3>Where Can You Obtain Further Information?</h3>
 <p>For any questions or concerns regarding our Cookie Policy, you may contact us using the following details:</p>
-<p>Test Educate Support<br />
-    https://test-ed.co.uk/contact</p>
+<p>{{ config('app.name') }} Support<br />
+    {{ config('app.url') }}/contact</p>

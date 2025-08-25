@@ -1,5 +1,5 @@
-<h2>Test Educate Privacy Policy</h2>
-<p>Your privacy is important to us. It is Test Educate's policy to respect your privacy and comply with any applicable law and regulation regarding any personal information we may collect about you, including across our website, <a href="https://test-ed.co.uk">https://test-ed.co.uk</a>, and other sites we own and operate.</p>
+<h2>{{ config('app.name') }} Privacy Policy</h2>
+<p>Your privacy is important to us. It is {{ config('app.name') }}'s policy to respect your privacy and comply with any applicable law and regulation regarding any personal information we may collect about you, including across our website, <a href="{{ config('app.url') }}">{{ config('app.url') }}</a>, and other sites we own and operate.</p>
 <p>Personal information is any information about you which can be used to identify you. This includes information about you as a person (such as name, address, and date of birth), your devices, payment details, and even information about how you use a website or online service.</p>
 <p>In the event our site contains links to third-party sites and services, please be aware that those sites and services have their own privacy policies. After following a link to any third-party content, you should read their posted privacy policy information about how they collect and use personal information. This Privacy Policy does not apply to any of your activities after you leave our site.</p>
 <p>This policy is effective as of 3 December 2022</p>
@@ -91,7 +91,7 @@
 <p>If required by law, we will get your permission or give you the opportunity to opt in to or opt out of, as applicable, any new uses of your personal information.</p>
 <h3>Additional Disclosures for General Data Protection Regulation (GDPR) Compliance (EU)</h3>
 <h4>Data Controller / Data Processor</h4>
-<p>The GDPR distinguishes between organisations that process personal information for their own purposes (known as &quot;data controllers&quot;) and organisations that process personal information on behalf of other organisations (known as &quot;data processors&quot;). We, Test Educate, located at the address provided in our Contact Us section, are a Data Controller with respect to the personal information you provide to us.</p>
+<p>The GDPR distinguishes between organisations that process personal information for their own purposes (known as &quot;data controllers&quot;) and organisations that process personal information on behalf of other organisations (known as &quot;data processors&quot;). We, {{ config('app.name') }}, located at the address provided in our Contact Us section, are a Data Controller with respect to the personal information you provide to us.</p>
 <h4>Legal Bases for Processing Your Personal Information</h4>
 <p>We will only collect and use your personal information when we have a legal right to do so. In which case, we will collect and use your personal information lawfully, fairly, and in a transparent manner. If we seek your consent to process your personal information, and you are under 16 years of age, we will seek your parent or legal guardian’s consent to process your personal information for that specific purpose.</p>
 <p>Our lawful bases depend on the services you use and how you use them. This means we only collect and use your information on the following grounds:</p>
@@ -150,7 +150,7 @@
 <p>When may the right to erasure apply?</p>
 <ul>
     <li>When the personal data is no longer necessary for the purpose for which it was originally collected or processed for.</li>
-    <li>If consent was the lawful basis for processing personal data and that consent has been withdrawn. Test Educate relies on consent to process personal data in very few circumstances.</li>
+    <li>If consent was the lawful basis for processing personal data and that consent has been withdrawn. {{ config('app.name') }} relies on consent to process personal data in very few circumstances.</li>
     <li>The Company is relying on legitimate interests as a legal basis for processing personal data and an individual has exercised the right to object and it has been determined that the Company has no overriding legitimate grounds to refuse that request.</li>
     <li>Personal data are being processed for direct marketing purposes e.g. a person’s name and email address, and the individual objects to that processing.</li>
     <li>There is legislation that requires that personal data are to be destroyed.</li>
@@ -158,7 +158,7 @@
 <p><strong>Right to Portability:</strong> Individuals have the right to get some of their personal data from an organisation in a way that is accessible and machine-readable, for example as a csv file. Associated with this, individuals also have the right to ask an organisation to transfer their personal data to another organisation.</p>
 <p>However, the right to portability:</p>
 <ul>
-    <li>only applies to personal data which a person has directly given to Test Educate in electronic form; and</li>
+    <li>only applies to personal data which a person has directly given to {{ config('app.name') }} in electronic form; and</li>
     <li>onward transfer will only be available where this is “technically feasible”.</li>
 </ul>
 <p><strong>Right to Rectification:</strong> If personal data is inaccurate, out of date, or incomplete, individuals have the right to correct, update or complete that data. Collectively this is referred to as the right to rectification. Rectification may involve filling the gaps i.e. to have to have incomplete personal data completed – although this will depend on the purposes for the processing. This may involve adding a supplementary statement to the incomplete data to highlight any inaccuracy or claim thereof.</p>
@@ -166,7 +166,7 @@
 <p><strong>Notification of data breaches:</strong> Upon discovery of a data breach, we will investigate the incident and report it to the UK’s data protection regulator and yourself, if we deem it appropriate to do so.</p>
 <p><strong>Complaints:</strong> You have the right, at any time, to lodge a complaint with the Information Commissioner’s Office (ICO), the UK supervisory authority for data protection issues (www.ico.org.uk). We would, however, appreciate the chance to deal with your concerns before you approach the ICO so please contact us in the first instance using the details below. Please provide us with as much information as you can about the alleged breach. We will promptly investigate your complaint and respond to you, in writing, setting out the outcome of our investigation and the steps we will take to deal with your complaint.</p>
 <h4>Enquiries, Reports and Escalation</h4>
-<p>To enquire about Test Educate's privacy policy, or to report violations of user privacy, you may contact our Data Protection Officer using the details in the Contact us section of this privacy policy.</p>
+<p>To enquire about {{ config('app.name') }}'s privacy policy, or to report violations of user privacy, you may contact our Data Protection Officer using the details in the Contact us section of this privacy policy.</p>
 <p>If we fail to resolve your concern to your satisfaction, you may also contact the Information Commissioner’s Office (ICO), the UK Data Protection regulator:</p>
 <p>Information Commissioner's Office <br />
     Wycliffe House <br />
@@ -179,5 +179,5 @@
     Website: www.ico.org.uk</p>
 <h3>Contact Us</h3>
 <p>For any questions or concerns regarding your privacy, you may contact us using the following details:</p>
-<p>Test Educate Support<br />
-    https://test-ed.co.uk/contact</p>
+<p>{{ config('app.name') }} Support<br />
+    {{ config('app.url') }}/contact</p>

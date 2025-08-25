@@ -1,6 +1,15 @@
-<x-content.compliance
-    :title="__('Cookie Policy')"
-    last-updated="27/11/2023"
+<x-content.title-subtitle
+    :title="__('quepenny::legal.cookies.title')"
+    :subtitle="__('quepenny::legal.cookies.subtitle', ['date' => '13/01/2025'])"
 >
-    @include(__('legal.cookies'))
-</x-content.compliance>
+    <p class="mb-4">
+        <a
+            href="javascript:void(0)"
+            class="js-lcc-settings-toggle text-teal-600"
+        >
+            @lang('cookie-consent::texts.alert_settings')
+        </a>
+    </p>
+
+    @include(__('quepenny::legal.cookies.view'))
+</x-content.title-subtitle>
