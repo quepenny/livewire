@@ -1,5 +1,5 @@
 <x-mail::message>
-# Hello Test-Educate
+# Hello {{ config('app.name') }}
 
 An enquiry has been submitted on {{ config('app.url') }}.
 
