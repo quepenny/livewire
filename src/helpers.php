@@ -79,3 +79,30 @@ if (! function_exists('resource_label')) {
         ]);
     }
 }
+
+if (! function_exists('enum_dropdown_options')) {
+    /**
+     * Convert an array of enums to an array of dropdown options.
+     *
+     * @param array<BackedEnum> $enums
+     */
+    function enum_dropdown_options(array $enums, string $placeholder = ''): array
+    {
+        $options = [
+            [
+                'label' => $placeholder ?: 'Select Option',
+                'value' => '',
+            ]
+        ];
+
+        foreach ($enums as $enum) {
+            $options[] = [
+                'label' => titleplace($enum->value),
+                'value' => $enum->value,
+            ];
+        }
+
+        return $options;
+    }
+}
+
