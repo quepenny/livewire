@@ -86,7 +86,7 @@ if (! function_exists('enum_dropdown_options')) {
      *
      * @param array<BackedEnum> $enums
      */
-    function enum_dropdown_options(array $enums, string $placeholder = ''): array
+    function enum_dropdown_options(array $enums, string $placeholder = '', array $additional = []): array
     {
         $options = [
             [
@@ -99,6 +99,7 @@ if (! function_exists('enum_dropdown_options')) {
             $options[] = [
                 'label' => titleplace($enum->value),
                 'value' => $enum->value,
+                ...$additional
             ];
         }
 
