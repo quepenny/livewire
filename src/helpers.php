@@ -2,6 +2,7 @@
 
 use App\Models\Guest;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 
 if (! function_exists('guest')) {
@@ -107,3 +108,38 @@ if (! function_exists('enum_dropdown_options')) {
     }
 }
 
+if (! function_exists('file_id')) {
+    /**
+     * Generate a unique identifier for a file upload.
+     */
+    function file_id(UploadedFile $file): ?string
+    {
+        // Build a reasonably unique, stable identifier for the temp upload.
+        $parts = [
+            method_exists($file, 'getRealPath') ? (string) $file->getRealPath() : '',
+            method_exists($file, 'getPathname') ? $file->getPathname() : '',
+            method_exists($file, 'getClientOriginalName') ? $file->getClientOriginalName() : '',
+            method_exists($file, 'getSize') ? (string) $file->getSize() : '',
+        ];
+
+        return sha1(implode('|', $parts));
+    }
+}
+
+if (! function_exists('uploaded_file_from_storage')) {
+    /**
+     * Create an UploadedFile instance from a stored file path.
+     */
+    function uploaded_file_from_storage(string $disk, string $storedPath): UploadedFile
+    {
+        $absolutePath = Storage::disk($disk)->path($storedPath);
+
+        return new UploadedFile(
+            $absolutePath,
+            basename($absolutePath),
+            mime_content_type($absolutePath) ?: null,
+            null,      // $error
+            true       // $test: important when not from real HTTP upload
+        );
+    }
+}
