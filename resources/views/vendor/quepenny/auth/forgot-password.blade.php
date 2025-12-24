@@ -15,7 +15,7 @@
         </div>
     @endif
     
-    <x-input
+    <x-input.text
         field="email"
         type="email"
         value="{{ old('email') }}"

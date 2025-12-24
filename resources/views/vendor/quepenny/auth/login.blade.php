@@ -13,22 +13,21 @@
 
     <x-social-login />
 
-    <x-input
+    <x-input.text
         field="email"
         type="email"
         value="{{ old('email') }}"
     />
 
-    <x-input
+    <x-input.text
         field="password"
         type="password"
         value="{{ old('password') }}"
     />
 
-    <x-input
+    <x-input.checkbox
         label="{{ __('Remember Me') }}"
         field="remember"
-        type="checkbox"
         checked="{{ old('remember') }}"
     />
 
