@@ -7,23 +7,23 @@
 
     <x-social-login />
 
-    <x-input
+    <x-input.text
         field="name"
         value="{{ old('name') }}"
     />
 
-    <x-input
+    <x-input.text
         field="email"
         type="email"
         value="{{ old('email') }}"
     />
 
-    <x-input
+    <x-input.text
         field="password"
         type="password"
     />
 
-    <x-input
+    <x-input.text
         :label="__('Confirm Password')"
         field="password_confirmation"
         type="password"
@@ -46,8 +46,7 @@
             >{{ __('Privacy Policy') }}</a>
         </p>
 
-        <x-input
-            type="checkbox"
+        <x-input.checkbox
             label="Agreed"
             field="terms"
         />

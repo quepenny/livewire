@@ -9,18 +9,18 @@
         value="{{ $request->route('token') }}"
     >
 
-    <x-input
+    <x-input.text
         field="email"
         type="email"
         :value="old('email', $request->email)"
     />
 
-    <x-input
+    <x-input.text
         field="password"
         type="password"
     />
 
-    <x-input
+    <x-input.text
         label="Confirm Password"
         field="password_confirmation"
         type="password"

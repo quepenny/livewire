@@ -8,7 +8,7 @@
     </x-slot>
 
     <x-slot name="form">
-        <x-input
+        <x-input.text
             class="col-span-6"
             field="state.current_password"
             type="password"
@@ -16,7 +16,7 @@
             :label="__('Current Password')"
         />
     
-        <x-input
+        <x-input.text
             class="col-span-6"
             field="state.password"
             type="password"
@@ -24,7 +24,7 @@
             :label="__('New Password')"
         />
     
-        <x-input
+        <x-input.text
             class="col-span-6"
             field="state.password_confirmation"
             type="password"

@@ -53,7 +53,7 @@
         @endif
 
         <!-- Name -->
-        <x-input
+        <x-input.text
             class="col-span-6"
             field="state.name"
             :label="__('Name')"
@@ -61,7 +61,7 @@
         />
         
         <!-- Email -->
-        <x-input
+        <x-input.text
             class="col-span-6"
             field="state.email"
             :label="__('Email')"
