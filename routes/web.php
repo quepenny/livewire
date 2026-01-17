@@ -21,9 +21,9 @@ use Quepenny\Livewire\Terms;
 */
 
 Route::get('contact', Enquiry::class)->name('contact');
-Route::get('terms', Terms::class)->name('terms');
-Route::get('privacy', Privacy::class)->name('privacy');
-Route::get('cookies', Cookies::class)->name('cookies');
+Route::get('terms', fn () => view('legal.terms'))->name('terms');
+Route::get('privacy', fn () => view('legal.privacy'))->name('privacy');
+Route::get('cookies', fn () => view('legal.cookies'))->name('cookies');
 Route::get('email/verified', fn () => view('auth.email-verified'))->name('email.verified');
 
 Route::middleware([

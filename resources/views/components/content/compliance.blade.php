@@ -5,7 +5,7 @@
 
 <x-content.title-subtitle
     :title="$title"
-    :subtitle="__('Last Updated: :date', ['date' => $lastUpdated])"
+    :subtitle="__('quepenny::legal.last_updated', ['date' => $lastUpdated])"
 >
     <div class="compliance">
         {{ $slot }}
