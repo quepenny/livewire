@@ -7,15 +7,11 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
-use Quepenny\Livewire\Cookies;
-use Quepenny\Livewire\Enquiry;
 use Quepenny\Livewire\Modal\DeleteAccount;
 use Quepenny\Livewire\Modal\DeleteResource;
 use Quepenny\Livewire\Modal\EditResource;
 use Quepenny\Livewire\Modal\LogoutOtherSessions;
 use Quepenny\Livewire\Modal\RequireMembership;
-use Quepenny\Livewire\Privacy;
-use Quepenny\Livewire\Terms;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -83,10 +79,6 @@ class AppServiceProvider extends ServiceProvider
 
     private function registerLivewireComponents(): void
     {
-        Livewire::component('quepenny::livewire.cookies', Cookies::class);
-        Livewire::component('quepenny::livewire.contact', Enquiry::class);
-        Livewire::component('quepenny::livewire.privacy', Privacy::class);
-        Livewire::component('quepenny::livewire.terms', Terms::class);
         Livewire::component('quepenny::livewire.modal.edit-resource', EditResource::class);
         Livewire::component('quepenny::livewire.modal.delete-resource', DeleteResource::class);
         Livewire::component('quepenny::livewire.modal.logout-other-sessions', LogoutOtherSessions::class);

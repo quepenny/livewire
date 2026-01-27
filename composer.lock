@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "469798443bf5ea282cb399de9f01aabd",
+    "content-hash": "b3862e9ac68c3cd4cb35c2f20d019013",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2885,16 +2885,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v3.6.3",
+            "version": "v4.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "56aa1bb63a46e06181c56fa64717a7287e19115e"
+                "reference": "11afe7b36dbb1d98e073551c217f87b2b6911f81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/56aa1bb63a46e06181c56fa64717a7287e19115e",
-                "reference": "56aa1bb63a46e06181c56fa64717a7287e19115e",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/11afe7b36dbb1d98e073551c217f87b2b6911f81",
+                "reference": "11afe7b36dbb1d98e073551c217f87b2b6911f81",
                 "shasum": ""
             },
             "require": {
@@ -2949,7 +2949,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v3.6.3"
+                "source": "https://github.com/livewire/livewire/tree/v4.0.3"
             },
             "funding": [
                 {
@@ -2957,7 +2957,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-04-12T22:26:52+00:00"
+            "time": "2026-01-23T06:13:46+00:00"
         },
         {
             "name": "maatwebsite/excel",
@@ -7436,20 +7436,20 @@
         },
         {
             "name": "wire-elements/modal",
-            "version": "3.0.1",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wire-elements/modal.git",
-                "reference": "4e955ca73f5913501d76ba05fe5f7cdaf4022946"
+                "reference": "3c17ed4e5d1506773db37dbbfdcacff12b037317"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wire-elements/modal/zipball/4e955ca73f5913501d76ba05fe5f7cdaf4022946",
-                "reference": "4e955ca73f5913501d76ba05fe5f7cdaf4022946",
+                "url": "https://api.github.com/repos/wire-elements/modal/zipball/3c17ed4e5d1506773db37dbbfdcacff12b037317",
+                "reference": "3c17ed4e5d1506773db37dbbfdcacff12b037317",
                 "shasum": ""
             },
             "require": {
-                "livewire/livewire": "^3.2.3",
+                "livewire/livewire": "^3.2.3|^4.0",
                 "php": "^8.1",
                 "spatie/laravel-package-tools": "^1.9"
             },
@@ -7488,7 +7488,7 @@
             ],
             "support": {
                 "issues": "https://github.com/wire-elements/modal/issues",
-                "source": "https://github.com/wire-elements/modal/tree/3.0.1"
+                "source": "https://github.com/wire-elements/modal/tree/3.0.4"
             },
             "funding": [
                 {
@@ -7496,7 +7496,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-23T05:09:13+00:00"
+            "time": "2026-01-23T11:08:48+00:00"
         }
     ],
     "packages-dev": [
@@ -9282,7 +9282,8 @@
     "prefer-lowest": false,
     "platform": {
         "php": "^8.3",
-        "ext-zip": "*"
+        "ext-zip": "*",
+        "ext-fileinfo": "*"
     },
     "platform-dev": {},
     "plugin-api-version": "2.6.0"
