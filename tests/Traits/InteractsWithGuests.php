@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\Session;
 
 trait InteractsWithGuests
 {
-    protected function actingAsGuest(Guest $guest = null): static
+    public function actingAsGuestUser(?Guest $guest = null): static
     {
         Session::put('guest', $guest ?? Guest::query()->create());
 
         return $this;
     }
 
-    protected function actingAsMember(User $user = null): static
+    public function actingAsMemberUser(?User $user = null): static
     {
         $this->actingAs($user ?: User::factory()->create());
 
