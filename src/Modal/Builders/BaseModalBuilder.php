@@ -17,7 +17,7 @@ abstract class BaseModalBuilder implements Arrayable
         return Str::of(class_basename(static::class))
             ->replace('Builder', '')
             ->kebab()
-            ->prepend('quepenny::livewire.modal.');
+            ->prepend('quepenny.livewire.modal.');
     }
 
     public static function modalClass(): string

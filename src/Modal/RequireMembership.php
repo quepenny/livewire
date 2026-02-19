@@ -19,7 +19,7 @@ class RequireMembership extends BaseModalComponent implements CustomActions, Arr
 
     public static function slug(): string
     {
-        return 'quepenny::livewire.modal.require-membership';
+        return 'quepenny.livewire.modal.require-membership';
     }
 
     public function registerCustomActions(): void

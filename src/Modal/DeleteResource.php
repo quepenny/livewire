@@ -12,7 +12,7 @@ class DeleteResource extends ResourceModal
 
     public static function slug(): string
     {
-        return 'quepenny::livewire.modal.delete-resource';
+        return 'quepenny.livewire.modal.delete-resource';
     }
 
     #[Computed]

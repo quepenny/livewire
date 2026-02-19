@@ -79,10 +79,10 @@ class AppServiceProvider extends ServiceProvider
 
     private function registerLivewireComponents(): void
     {
-        Livewire::component('quepenny::livewire.modal.edit-resource', EditResource::class);
-        Livewire::component('quepenny::livewire.modal.delete-resource', DeleteResource::class);
-        Livewire::component('quepenny::livewire.modal.logout-other-sessions', LogoutOtherSessions::class);
-        Livewire::component('quepenny::livewire.modal.delete-account', DeleteAccount::class);
-        Livewire::component('quepenny::livewire.modal.require-membership', RequireMembership::class);
+        Livewire::component('quepenny.livewire.modal.edit-resource', EditResource::class);
+        Livewire::component('quepenny.livewire.modal.delete-resource', DeleteResource::class);
+        Livewire::component('quepenny.livewire.modal.logout-other-sessions', LogoutOtherSessions::class);
+        Livewire::component('quepenny.livewire.modal.delete-account', DeleteAccount::class);
+        Livewire::component('quepenny.livewire.modal.require-membership', RequireMembership::class);
     }
 }

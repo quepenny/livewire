@@ -38,7 +38,7 @@ class EditResource extends ResourceModal implements CustomActions
 
     public static function slug(): string
     {
-        return 'quepenny::livewire.modal.edit-resource';
+        return 'quepenny.livewire.modal.edit-resource';
     }
 
     #[Computed]
