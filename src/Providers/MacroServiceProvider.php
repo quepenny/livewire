@@ -3,6 +3,7 @@
 namespace Quepenny\Livewire\Providers;
 
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
@@ -66,7 +67,7 @@ class MacroServiceProvider extends ServiceProvider
             ];
 
             PHPUnit::assertTrue(
-                $this->testDispatched('openModal', $eventParams)['test'],
+                $this->testDispatched('openModal', Arr::only($eventParams, 'arguments'))['test'],
                 "Failed asserting that {$modal::slug()} was dispatched with the provided parameters."
             );
 
