@@ -3,6 +3,7 @@
 namespace Quepenny\Livewire\Providers;
 
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
@@ -61,7 +62,6 @@ class MacroServiceProvider extends ServiceProvider
     {
         Testable::macro('assertModalDispatched', function (BaseModalComponent|BaseModalBuilder $modal, $params = []) {
             $eventParams = [
-                'component' => $modal::slug(),
                 'arguments' => $modal instanceof Arrayable ? $modal->toArray() : $params,
             ];
 
@@ -69,6 +69,8 @@ class MacroServiceProvider extends ServiceProvider
                 $this->testDispatched('openModal', $eventParams)['test'],
                 "Failed asserting that {$modal::slug()} was dispatched with the provided parameters."
             );
+
+            $eventParams['component'] = $modal::slug();
 
             PHPUnit::assertSame(
                 Session::get('open-modal'),
