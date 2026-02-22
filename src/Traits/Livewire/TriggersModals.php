@@ -22,9 +22,9 @@ trait TriggersModals
             $params = $modal->toArray();
         }
 
-        $this->dispatch('openModal', component: $modal->slug(), arguments: $params);
+        $this->dispatch('openModal', $modal->slug(), $params);
 
-        // For opening modals on page component mount
+        // For opening modals on the page component mount
         Session::now('open-modal', [
             'component' => $modal->slug(),
             'arguments' => $params,
