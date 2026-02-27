@@ -29,7 +29,7 @@ abstract class FormInput extends BaseComponent
         public string $field,
         public ?string $label = null,
         public string $errorFor = '',
-        public bool $showLabel = true,
+        public bool $hideLabel = false,
         public string $placeholder = '',
         public bool $live = false,
         public bool $change = false,
