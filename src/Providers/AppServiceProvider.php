@@ -73,7 +73,8 @@ class AppServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../../src/View/Components/AppLayout.php' => app_path('View/Components/AppLayout.php'),
             __DIR__.'/../../src/View/Components/Input.php' => app_path('View/Components/Input.php'),
-            __DIR__.'/../../src/View/Components/Tooltip.php' => app_path('View/Components/Tooltip.php'),
+            __DIR__.'/../../src/View/Components/Stubs/Tooltip.php' => app_path('View/Components/Tooltip.php'),
+            __DIR__.'/../../src/View/Components/Stubs/Button.php' => app_path('View/Components/Button.php'),
         ], ['quepenny', 'components']);
     }
 

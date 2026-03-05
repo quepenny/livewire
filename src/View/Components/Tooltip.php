@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace Quepenny\Livewire\View\Components;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
