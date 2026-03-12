@@ -3,7 +3,7 @@
     "description": "Livewire library for Quepenny projects",
     "type": "library",
     "require": {
-        "php": "^8.3",
+        "php": "^8.5",
         "barryvdh/laravel-snappy": "^1.0",
         "ext-zip": "*",
         "ext-fileinfo": "*",
@@ -12,7 +12,7 @@
         "laravel/jetstream": "^5.0",
         "laravel/socialite": "^5.6",
         "livewire/livewire": "^4.0",
-        "maatwebsite/excel": "^3.1",
+        "maatwebsite/excel": "^4.x-dev",
         "laravel/scout": "^10.0",
         "wire-elements/modal": "^3.0"
     },
@@ -44,5 +44,10 @@
             "name": "Paul Ogbeiwi",
             "email": "developers@quepenny.com"
         }
-    ]
+    ],
+    "config": {
+        "platform": {
+            "ext-gd": "8.5"
+        }
+    }
 }
