@@ -4,7 +4,7 @@ namespace App\Traits\Models;
 
 use Quepenny\Livewire\Traits\Models\MorphTrait;
 
-trait UserTrait
+trait IsUser
 {
     use MorphTrait;
 

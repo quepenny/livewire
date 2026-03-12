@@ -51,7 +51,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../../src/Models/Guest.php' => app_path('Models/Guest.php'),
-            __DIR__.'/../../src/Traits/Models/UserTrait.php' => app_path('Traits/Models/UserTrait.php'),
+            __DIR__ . '/../../src/Traits/Models/IsUser.php' => app_path('Traits/Models/IsUser.php'),
         ], ['quepenny', 'models']);
 
         $this->publishes([
