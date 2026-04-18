@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Guest;
-use Illuminate\Contracts\Auth\Authenticatable;
+use App\Models\User;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 
@@ -60,9 +60,9 @@ if (! function_exists('titleplace')) {
 
 if (! function_exists('user')) {
     /**
-     * Return authenticated user or guest-member
+     * Return an authenticated user or guest-member
      */
-    function user(): Authenticatable|Guest
+    function user(): User|Guest
     {
         return Auth::user() ?? guest();
     }
