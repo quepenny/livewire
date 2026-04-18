@@ -67,7 +67,11 @@ class MacroServiceProvider extends ServiceProvider
             ];
 
             PHPUnit::assertTrue(
-                $this->testDispatched('openModal', Arr::only($eventParams, 'arguments'))['test'],
+                collect(data_get($this->effects, 'dispatches'))->contains(function ($item) use ($eventParams) {
+                    return $item['name'] === 'openModal'
+                        && Arr::get($item, 'params.0') === $eventParams['component']
+                        && Arr::get($item, 'params.1') === $eventParams['arguments'];
+                }),
                 "Failed asserting that {$modal::slug()} was dispatched with the provided parameters."
             );
 
