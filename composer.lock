@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "afe83c6d5277bb68b4e73552b0beca59",
+    "content-hash": "e536a5a41345d055ab35ccedb2c54667",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2911,25 +2911,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SpartnerNL/Laravel-Excel.git",
-                "reference": "b774e3458a0d9a895f69b1d4baa0af3df90a4414"
+                "reference": "4ff49665499e2698a3861d5804063b1424269e28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SpartnerNL/Laravel-Excel/zipball/b774e3458a0d9a895f69b1d4baa0af3df90a4414",
-                "reference": "b774e3458a0d9a895f69b1d4baa0af3df90a4414",
+                "url": "https://api.github.com/repos/SpartnerNL/Laravel-Excel/zipball/4ff49665499e2698a3861d5804063b1424269e28",
+                "reference": "4ff49665499e2698a3861d5804063b1424269e28",
                 "shasum": ""
             },
             "require": {
                 "composer/semver": "^3.3",
                 "ext-json": "*",
-                "illuminate/support": "^11.0||^12.0",
+                "illuminate/support": "^11.0||^12.0||^13.0",
                 "php": "^8.2",
                 "phpoffice/phpspreadsheet": "^5.3",
                 "psr/simple-cache": "^1.0||^2.0||^3.0"
             },
             "require-dev": {
-                "laravel/scout": "^10.0",
-                "orchestra/testbench": "^9.0||^10.0",
+                "laravel/scout": "^10.0||^11.0",
+                "orchestra/testbench": "^9.0||^10.0||^11.0",
                 "predis/predis": "^1.1"
             },
             "type": "library",
@@ -2984,7 +2984,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-10T09:03:13+00:00"
+            "time": "2026-03-18T15:43:56+00:00"
         },
         {
             "name": "maennchen/zipstream-php",
@@ -9455,8 +9455,7 @@
     "platform": {
         "php": "^8.5",
         "ext-zip": "*",
-        "ext-fileinfo": "*",
-        "ext-gd": "*"
+        "ext-fileinfo": "*"
     },
     "platform-dev": {},
     "platform-overrides": {
