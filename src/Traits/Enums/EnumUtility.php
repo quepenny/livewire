@@ -4,6 +4,11 @@ namespace Quepenny\Livewire\Traits\Enums;
 
 trait EnumUtility
 {
+    public function label(): string
+    {
+        return $this->name;
+    }
+
     public static function values(): array
     {
         return array_map(fn($case) => $case->value, self::cases());
