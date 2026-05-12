@@ -98,8 +98,8 @@ if (! function_exists('enum_dropdown_options')) {
 
         foreach ($enums as $enum) {
             $options[] = [
-                'label' => method_exists($enum, 'label') ? $enum->label() : titleplace($enum->value),
-                'value' => $enum->value ?? $enum->name,
+                'label' => $enum->label(),
+                'value' => $enum->value(),
                 ...$additional
             ];
         }
