@@ -3,7 +3,7 @@
     "description": "Livewire library for Quepenny projects",
     "type": "library",
     "require": {
-        "php": "^8.5",
+        "php": "^8.4",
         "barryvdh/laravel-snappy": "^1.0",
         "ext-zip": "*",
         "ext-fileinfo": "*",
