@@ -2,7 +2,7 @@
 
 namespace Quepenny\Livewire\Traits\Enums;
 
-trait EnumUtility
+trait HasOptions
 {
     public function label(): string
     {
