@@ -1,6 +1,6 @@
 <?php
 
-namespace Quepenny\Livewire\Database\Factories;
+namespace Quepenny\Livewire\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Quepenny\Livewire\Models\Enquiry;

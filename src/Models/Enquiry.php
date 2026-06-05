@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-use Quepenny\Livewire\Database\Factories\EnquiryFactory;
+use Quepenny\Livewire\Factories\EnquiryFactory;
 
 class Enquiry extends Model
 {
