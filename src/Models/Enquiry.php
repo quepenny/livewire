@@ -2,9 +2,11 @@
 
 namespace Quepenny\Livewire\Models;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Quepenny\Livewire\Database\Factories\EnquiryFactory;
 
 class Enquiry extends Model
 {
@@ -12,4 +14,9 @@ class Enquiry extends Model
     use Notifiable;
 
     protected $guarded = [];
+
+    protected static function newFactory(): Factory
+    {
+        return EnquiryFactory::new();
+    }
 }
