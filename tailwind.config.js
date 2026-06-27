@@ -12,6 +12,7 @@ export default {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './vendor/laravel/jetstream/**/*.blade.php',
         './vendor/livewire-ui/modal/resources/views/*.blade.php',
+        './vendor/quepenny/livewire/resources/views/**/*.blade.php',
     ],
 
     theme: {
