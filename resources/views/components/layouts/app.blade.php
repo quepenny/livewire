@@ -19,7 +19,7 @@
 
 <x-toast/>
 
-<x-modal-scripts />
+<x-modal.scripts />
 
 {{ $scripts ?? '' }}
 

@@ -1,4 +1,4 @@
-<x-jet-form-section submit="updatePassword">
+<x-form-section submit="updatePassword">
     <x-slot name="title">
         {{ __('Update Password') }}
     </x-slot>
@@ -34,11 +34,11 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-jet-button
+        <x-button
             x-data=""
             x-init="$wire.on('saved', () => $store.toast.success('Saved'))"
         >
             {{ __('Save') }}
-        </x-jet-button>
+        </x-button>
     </x-slot>
-</x-jet-form-section>
+</x-form-section>

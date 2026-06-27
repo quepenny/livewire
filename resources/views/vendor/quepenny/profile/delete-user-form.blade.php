@@ -1,4 +1,4 @@
-<x-jet-action-section>
+<x-action-section>
     <x-slot name="title">
         {{ __('Delete Account') }}
     </x-slot>
@@ -14,11 +14,11 @@
     </x-slot>
     
     <x-slot name="actions">
-        <x-jet-button
+        <x-button
             action="$dispatch('openModal', 'modal.delete-account')"
             :destructive-action-button="true"
         >
             {{ __('Delete Account') }}
-        </x-jet-button>
+        </x-button>
     </x-slot>
-</x-jet-action-section>
+</x-action-section>

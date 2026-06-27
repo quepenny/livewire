@@ -1,4 +1,4 @@
-<x-jet-action-section>
+<x-action-section>
     <x-slot name="title">
         {{ __('Browser Sessions') }}
     </x-slot>
@@ -55,11 +55,11 @@
     </x-slot>
     
     <x-slot name="actions">
-        <x-jet-button
+        <x-button
             action="$dispatch('openModal', 'modal.logout-other-sessions')"
             :destructive-action-button="true"
         >
             {{ __('Log Out Other Browser Sessions') }}
-        </x-jet-button>
+        </x-button>
     </x-slot>
-</x-jet-action-section>
+</x-action-section>

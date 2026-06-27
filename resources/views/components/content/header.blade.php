@@ -44,9 +44,9 @@
 
         <div class="w-full flex justify-between sm:justify-end sm:w-1/2 lg:w-auto">
             @if($showActionButton)
-                <x-jet-button :action="$buttonAction">
+                <x-button :action="$buttonAction">
                     <span>{{ $actionButtonText }}</span>
-                </x-jet-button>
+                </x-button>
             @endif
 
             <div class="flex relative inline-block text-left ml-auto sm:ml-2">

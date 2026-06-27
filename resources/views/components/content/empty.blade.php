@@ -20,12 +20,12 @@
         @endif
         
         @if($showButton)
-            <x-jet-button
+            <x-button
                 class="capitalize mb-2 inline-block py-1 px-3 rounded-l-xl rounded-t-xl font-bold leading-loose text-gray-50 bg-teal-500 hover:bg-teal-600"
                 :action="$action"
             >
                 {{ __("empty.{$section}.button_text") }}
-            </x-jet-button>
+            </x-button>
         @endif
     </div>
 </section>

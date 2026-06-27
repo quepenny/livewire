@@ -20,7 +20,7 @@
                     data-modal-toggle="defaultModal"
                     wire:click="close"
                 >
-                    <x-bs-icon name="x" />
+                    <x-icon name="x" />
                 </button>
             @endif
         </div>

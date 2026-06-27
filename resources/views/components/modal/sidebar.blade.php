@@ -19,7 +19,7 @@
             <x-logo/>
 
             <button @click="{{ $toggle }}">
-                <x-bs-icon
+                <x-icon
                     name="x"
                     class="text-gray-400 cursor-pointer hover:text-gray-500"
                 />
