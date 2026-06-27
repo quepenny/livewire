@@ -1,3 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*
+ * Tailwind CSS v4 — the @tailwind base/components/utilities directives that
+ * previously lived here have been replaced by @import "tailwindcss" in
+ * app.css.  This file is intentionally left empty and kept only so that any
+ * consuming app that still has @import "tailwind-plugins.css" in its own CSS
+ * does not break at build time.
+ */

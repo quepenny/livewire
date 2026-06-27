@@ -1,7 +1,36 @@
+@import "tailwindcss";
 @import "fonts.css";
 @import "scrollbar.css";
-@import "tailwind-plugins.css";
 
+/* ─── Source paths ────────────────────────────────────────────────────────── */
+/* Paths are relative to this file (resources/css/) and are written so they  */
+/* work both when building the library itself and when published to a         */
+/* consuming app's resources/css/ directory.                                   */
+@source "../views";
+@source "../../app/View/Components";
+@source "../../public/js";
+@source "../../storage/framework/views";
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views";
+@source "../../vendor/laravel/jetstream";
+@source "../../vendor/livewire-ui/modal/resources/views";
+@source "../../vendor/quepenny/livewire/resources/views";
+@source "../../node_modules/flowbite";
+
+/* ─── Plugins ─────────────────────────────────────────────────────────────── */
+@plugin "flowbite/plugin";
+
+/* ─── Theme customisations ────────────────────────────────────────────────── */
+@theme {
+    /* Extra-small breakpoint below Tailwind's default sm (640px) */
+    --breakpoint-xs: 475px;
+
+    /* Prepend DM Sans to the default sans-serif stack */
+    --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+}
+
+/* ─── Utilities ───────────────────────────────────────────────────────────── */
 [x-cloak] {
     display: none !important;
 }
