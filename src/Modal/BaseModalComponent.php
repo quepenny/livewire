@@ -144,7 +144,7 @@ abstract class BaseModalComponent extends ModalComponent
 
     public function render(): View
     {
-        return view('livewire.modal');
+        return view('quepenny::livewire.modal');
     }
 
     public static function closeModalOnEscape(): bool

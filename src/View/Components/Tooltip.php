@@ -20,6 +20,6 @@ class Tooltip extends BaseComponent
 
     public function render(): View
     {
-        return view('components.tooltip');
+        return view('quepenny::components.tooltip');
     }
 }

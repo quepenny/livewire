@@ -56,6 +56,8 @@ return [
     |
     */
 
+    'button_default_variant' => 'teal',
+
     'button_variants' => [
         'black-outline' => [
             'hoverBackground' => 'bg-black',

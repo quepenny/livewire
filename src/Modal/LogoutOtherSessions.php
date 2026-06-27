@@ -17,7 +17,7 @@ class LogoutOtherSessions extends BaseModalComponent
     #[Computed]
     public function body(): View
     {
-        return view('livewire.forms.logout-other-sessions');
+        return view('quepenny::livewire.forms.logout-other-sessions');
     }
 
     /**

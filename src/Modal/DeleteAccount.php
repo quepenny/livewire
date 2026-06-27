@@ -19,7 +19,7 @@ class DeleteAccount extends BaseModalComponent
     #[Computed]
     public function body(): View
     {
-        return view('livewire.forms.delete-account');
+        return view('quepenny::livewire.forms.delete-account');
     }
 
     /**

@@ -16,7 +16,7 @@ class Button extends BaseComponent
 
     public function __construct(
         public ?string $action = null,
-        public string $variant = 'teal',
+        public string $variant = '',
         public string $textSize = 'text-base',
         public string $font = '',
         public string $icon = '',
@@ -38,8 +38,10 @@ class Button extends BaseComponent
     private function resolveVariants(): void
     {
         $variants = config('quepenny.button_variants');
+        $default = config('quepenny.button_default_variant', 'teal');
 
-        $this->resolvedVariant = $variants[$this->variant] ?? $variants['teal'];
+        $this->variant = $this->variant ?: $default;
+        $this->resolvedVariant = $variants[$this->variant] ?? $variants[$default];
         $this->resolvedVariant['background'] ??= '';
 
         $this->disabledVariant = $this->disabledVariant ?: $this->variant;
@@ -65,6 +67,6 @@ class Button extends BaseComponent
 
     public function render(): View
     {
-        return view('components.button');
+        return view('quepenny::components.button');
     }
 }

@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'quepenny');
         $this->loadTranslationsFrom(__DIR__.'/../../lang', 'quepenny');
         $this->loadMigrationsFrom(__DIR__ . '/../../src/Database/Migrations');
         $this->morphMap();
@@ -57,7 +58,7 @@ class AppServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../../resources/css' => resource_path('css'),
             __DIR__.'/../../resources/js' => resource_path('js'),
-            __DIR__.'/../../resources/views' => resource_path('views'),
+            __DIR__.'/../../resources/views' => resource_path('views/vendor/quepenny'),
         ], ['quepenny', 'resources']);
 
         $this->publishes([

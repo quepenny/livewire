@@ -8,7 +8,7 @@ class Settings extends PageComponent
 {
     public function render(): View
     {
-        return view('livewire.settings')->layoutData([
+        return view('quepenny::livewire.settings')->layoutData([
             'title' => __('pages.settings.title') ?: 'Settings',
             'nav' => ['active' => 'settings'],
         ]);
