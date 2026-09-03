@@ -2,8 +2,11 @@
 
 use App\Models\Guest;
 use App\Models\User;
+use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Contracts\Container\CircularDependencyException;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
+use Quepenny\Livewire\Services\Images\ImageUrlResolver;
 
 if (! function_exists('guest')) {
     /**
@@ -85,7 +88,7 @@ if (! function_exists('enum_dropdown_options')) {
     /**
      * Convert an array of enums to an array of dropdown options.
      *
-     * @param array<BackedEnum> $enums
+     * @param  array<BackedEnum>  $enums
      */
     function enum_dropdown_options(array $enums, string $placeholder = '', array $additional = []): array
     {
@@ -93,14 +96,14 @@ if (! function_exists('enum_dropdown_options')) {
             [
                 'label' => $placeholder ?: 'Select Option',
                 'value' => '',
-            ]
+            ],
         ];
 
         foreach ($enums as $enum) {
             $options[] = [
                 'label' => $enum->label(),
                 'value' => $enum->value(),
-                ...$additional
+                ...$additional,
             ];
         }
 
@@ -123,6 +126,23 @@ if (! function_exists('file_id')) {
         ];
 
         return sha1(implode('|', $parts));
+    }
+}
+
+if (! function_exists('qp_image')) {
+    /**
+     * Resolve a source image path to its fingerprinted public URL.
+     *
+     * Example: qp_image('how-it-works/step-1.png')
+     *          => /images/how-it-works/step-1.a7f8c2b1.webp
+     *
+     * Falls back to the original path when no manifest entry exists.
+     *
+     * @throws BindingResolutionException|CircularDependencyException
+     */
+    function qp_image(string $path): string
+    {
+        return app(ImageUrlResolver::class)->resolve($path);
     }
 }
 
