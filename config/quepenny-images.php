@@ -102,7 +102,7 @@ return [
         'team' => [
             'width' => 300,
             'quality' => 80,
-            'format' => compressed(),
+            'format' => 'webp',
             'delete_originals' => true,
         ],
 
