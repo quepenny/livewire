@@ -32,7 +32,7 @@
     @endunless
 
     <span class="relative z-10 flex items-center justify-center">
-        @if($icon)
+        @if($icon && $iconPosition !== 'trailing')
             <x-icon
                 @class(['mr-3' => $slot->isNotEmpty()])
                 :name="$icon"
@@ -42,5 +42,14 @@
         @endif
 
         {{ $slot }}
+
+        @if($icon && $iconPosition === 'trailing')
+            <x-icon
+                @class(['ml-3' => $slot->isNotEmpty()])
+                :name="$icon"
+                :width="$iconSize"
+                :height="$iconSize"
+            />
+        @endif
     </span>
 </{{ $tag }}>

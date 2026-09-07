@@ -22,9 +22,10 @@ class Button extends BaseComponent
         public string $icon = '',
         public string $link = '',
         public string $padding = 'py-2 px-5',
-        public string $rounding = 'rounded-lg',
+        public string $rounding = 'rounded-full',
         public string $disabledVariant = '',
         public bool $hideBackground = false,
+        public string $iconPosition = 'leading',
     ) {
         $this->resolveTag();
         $this->resolveVariants();

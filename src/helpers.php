@@ -137,8 +137,6 @@ if (! function_exists('qp_image')) {
      *          => /images/how-it-works/step-1.a7f8c2b1.webp
      *
      * Falls back to the original path when no manifest entry exists.
-     *
-     * @throws BindingResolutionException|CircularDependencyException
      */
     function qp_image(string $path): string
     {
